@@ -1,0 +1,21 @@
+{
+    "Shield": {
+        "NAME": "Shield",
+        "DESCRIPTION": "Gain !B! Block. Gain !DIV! Divinity."
+    },
+
+    "Smite": {
+        "NAME": "Smite",
+        "DESCRIPTION": "Deal !D! damage. Gain !DIV! Divinity."
+    },
+
+    "HolyWrath": {
+        "NAME": "Holy Wrath",
+        "DESCRIPTION": " Lose all Divinity. Deal !D! damage for each Divinity lost."
+    },
+
+    "LayOnHands": {
+        "NAME": "Lay on Hands",
+        "DESCRIPTION": "Heal !M! HP. Permanently reduce the HP healed by 1."
+    }
+}

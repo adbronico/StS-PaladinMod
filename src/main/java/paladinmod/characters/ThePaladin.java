@@ -81,18 +81,16 @@ public class ThePaladin extends CustomPlayer
     public ArrayList<String> getStartingDeck()
     {
         ArrayList<String> startingDeck = new ArrayList<>();
-        /* TODO: implement starter cards
-         * Defend
-         * Defend
-         * Defend
-         * Defend
-         * Smite
-         * Smite
-         * Smite
-         * Smite
-         * Lay on Hands
-         * Holy Wrath
-         */
+        startingDeck.add("Smite");
+        startingDeck.add("Smite");
+        startingDeck.add("Smite");
+        startingDeck.add("Smite");
+        startingDeck.add("Shield");
+        startingDeck.add("Shield");
+        startingDeck.add("Shield");
+        startingDeck.add("Shield");
+        startingDeck.add("LayOnHands");
+        startingDeck.add("HolyWrath");
         return startingDeck;
     }
 

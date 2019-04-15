@@ -1,16 +1,23 @@
 package paladinmod;
 
 import basemod.BaseMod;
+import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
 import com.badlogic.gdx.graphics.Color;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import paladinmod.cards.*;
 import paladinmod.characters.ThePaladin;
+import paladinmod.dynvar.DivinityVariable;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaladinMod implements
         EditCharactersSubscriber,
@@ -62,7 +69,24 @@ public class PaladinMod implements
     @Override
     public void receiveEditCards()
     {
+        logger.info("Adding DivinityVariable");
 
+        BaseMod.addDynamicVariable(new DivinityVariable());
+
+        logger.info("Adding Paladin class cards");
+
+        List<CustomCard> paladinCards = new ArrayList<>();
+        paladinCards.add(new Shield());
+        paladinCards.add(new Smite());
+        paladinCards.add(new LayOnHands());
+        paladinCards.add(new HolyWrath());
+
+        // Unlock all cards from first run
+        for(CustomCard card : paladinCards)
+        {
+            BaseMod.addCard(card);
+            UnlockTracker.unlockCard(card.cardID);
+        }
     }
 
     @Override
