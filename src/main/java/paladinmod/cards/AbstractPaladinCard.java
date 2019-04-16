@@ -1,6 +1,7 @@
 package paladinmod.cards;
 
 import basemod.abstracts.CustomCard;
+import paladinmod.*;
 import paladinmod.patches.AbstractCardEnum;
 
 public abstract class AbstractPaladinCard extends CustomCard
@@ -15,7 +16,8 @@ public abstract class AbstractPaladinCard extends CustomCard
     public AbstractPaladinCard(String id, String name, String img, int cost, String rawDescription,
                                CardType type, CardRarity rarity, CardTarget target)
     {
-        super(id, name, img, cost, rawDescription, type, AbstractCardEnum.PAL_GOLD, rarity, target);
+        // TODO: remove this once art assets are finished
+        super(id, name, PaladinMod.makePath("palbeta"), cost, rawDescription, type, AbstractCardEnum.PAL_GOLD, rarity, target);
     }
 
     public void upgradeDivinity(int amount)

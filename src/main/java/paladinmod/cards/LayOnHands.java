@@ -1,18 +1,17 @@
 package paladinmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.actions.defect.*;
-import com.megacrit.cardcrawl.cards.*;
-import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.core.*;
-import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.*;
-import paladinmod.*;
+import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import paladinmod.PaladinMod;
+import paladinmod.actions.ModifyHealAction;
 
 public class LayOnHands extends AbstractPaladinCard
 {
-    private static final String      ID                = "LayOnHands";
+    public  static final String      ID                = "PaladinMod:LayOnHands";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
@@ -26,8 +25,16 @@ public class LayOnHands extends AbstractPaladinCard
     public LayOnHands()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = HEAL_AMT;
+        this.baseMagicNumber = this.magicNumber = this.misc = HEAL_AMT;
         this.tags.add(CardTags.HEALING);
+    }
+
+    @Override
+    public void applyPowers()
+    {
+        this.baseMagicNumber = this.misc;
+        super.applyPowers();
+        this.initializeDescription();
     }
 
     @Override
@@ -36,15 +43,14 @@ public class LayOnHands extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.heal = HEAL_AMT;
+            this.baseMagicNumber = this.misc = HEAL_AMT;
         }
     }
 
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        // TODO: test if "increasing" by a negative works as intended - maybe create a DecreaseMisc action
-        AbstractDungeon.actionManager.addToBottom(new IncreaseMiscAction(this.uuid, this.heal, REDUCE_AMT));
-        AbstractDungeon.actionManager.addToBottom(new HealAction(player, player, this.heal));
+        AbstractDungeon.actionManager.addToBottom(new HealAction(player, player, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ModifyHealAction(this.uuid, REDUCE_AMT));
     }
 }

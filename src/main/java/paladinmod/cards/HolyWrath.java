@@ -1,18 +1,20 @@
 package paladinmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.*;
-import com.megacrit.cardcrawl.cards.*;
-import com.megacrit.cardcrawl.characters.*;
-import com.megacrit.cardcrawl.core.*;
-import com.megacrit.cardcrawl.dungeons.*;
-import com.megacrit.cardcrawl.localization.*;
-import com.megacrit.cardcrawl.monsters.*;
-import paladinmod.*;
-import paladinmod.patches.*;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import paladinmod.PaladinMod;
+import paladinmod.actions.ResetDivinityAction;
+import paladinmod.powers.DivinityPower;
 
 public class HolyWrath extends AbstractPaladinCard
 {
-    private static final String      ID                = "HolyWrath";
+    public  static final String      ID                = "PaladinMod:HolyWrath";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
@@ -34,7 +36,7 @@ public class HolyWrath extends AbstractPaladinCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new Smite();
+        return new HolyWrath();
     }
 
     @Override
@@ -48,9 +50,26 @@ public class HolyWrath extends AbstractPaladinCard
     }
 
     @Override
+    public float calculateModifiedCardDamage(AbstractPlayer player, AbstractMonster monster, float tmp)
+    {
+        int bonusDamage = 0;
+
+        if(player.hasPower(DivinityPower.POWER_ID))
+        {
+            int divinityAmount = player.getPower(DivinityPower.POWER_ID).amount;
+            if(divinityAmount > 0)
+            {
+                bonusDamage = magicNumber * divinityAmount;
+            }
+        }
+
+        return tmp + bonusDamage;
+    }
+
+    @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        // TODO: Code DivinityPower actions
         AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(player, this.damage, this.damageTypeForTurn)));
+        AbstractDungeon.actionManager.addToBottom(new ResetDivinityAction());
     }
 }

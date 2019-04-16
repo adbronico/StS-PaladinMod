@@ -1,7 +1,6 @@
 package paladinmod.characters;
 
 import basemod.abstracts.CustomPlayer;
-import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.math.MathUtils;
@@ -11,8 +10,10 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.EnergyManager;
 import com.megacrit.cardcrawl.core.Settings;
+import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import paladinmod.PaladinMod;
+import paladinmod.cards.*;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
 
@@ -22,8 +23,8 @@ public class ThePaladin extends CustomPlayer
 {
     private static final int ENERGY_PER_TURN = 3;
     // TODO: create these
-    private static final String MY_CHARACTER_SKELETON_ATLAS = "img/char/skeleton.atlas"; // spine animation atlas
-    private static final String MY_CHARACTER_SKELETON_JSON  = "img/char/skeleton.json"; // spine animation json
+    private static final String MY_CHARACTER_SKELETON_ATLAS = "char/skeleton.atlas"; // spine animation atlas
+    private static final String MY_CHARACTER_SKELETON_JSON  = "char/skeleton.json"; // spine animation json
 
     private static final String CHARACTER_NAME = "The Paladin";
     private static final Color CHARACTER_COLOR = Color.GOLD;
@@ -32,8 +33,9 @@ public class ThePaladin extends CustomPlayer
     private static final String CHARACTER_HEART_TEXT = "Paladin Heart TBD";
     private static final String CHARACTER_VAMP_TEXT  = "Vampire Paladin TBD";
 
-    private static final int STARTING_HP   = 60;
-    private static final int MAX_HP        = 60;
+    // TODO: change these back to real values following testing
+    private static final int STARTING_HP   = 600;
+    private static final int MAX_HP        = 600;
     private static final int MAX_ORBS      = 0;
     private static final int STARTING_GOLD = 90;
     private static final int HAND_SIZE     = 5;
@@ -59,9 +61,9 @@ public class ThePaladin extends CustomPlayer
 
     public ThePaladin(String name)
     {
-        // TODO: create vfx.png and animation.scml
+        // TODO: create vfx and animation files
         super(name, ThePaladinEnum.THE_PALADIN, orbTextures,
-                PaladinMod.makePath("char/orb/vfx.png"), new SpriterAnimation(PaladinMod.makePath("char/animation.scml")));
+                PaladinMod.makePath("char/orb/vfx.png"), (String) null, (String) null);
 
         this.dialogX = (this.drawX + 0.0F * Settings.scale);
         this.dialogY = (this.drawY + 220.0F * Settings.scale);
@@ -71,9 +73,9 @@ public class ThePaladin extends CustomPlayer
                         PaladinMod.makePath(PaladinMod.PALADIN_CORPSE),
                         getLoadout(), 20.0F, -10.0F, 220.0F, 290.0F, new EnergyManager(ENERGY_PER_TURN));
 
-        loadAnimation(MY_CHARACTER_SKELETON_ATLAS, MY_CHARACTER_SKELETON_JSON, 1.0F);
+        loadAnimation(PaladinMod.makePath(MY_CHARACTER_SKELETON_ATLAS), PaladinMod.makePath(MY_CHARACTER_SKELETON_JSON), 1.0F);
 
-        AnimationState.TrackEntry e = this.state.setAnimation(0, "animation", true);
+        AnimationState.TrackEntry e = this.state.setAnimation(0, "Idle", true);
         e.setTime(e.getEndTime() * MathUtils.random());
     }
 
@@ -81,16 +83,16 @@ public class ThePaladin extends CustomPlayer
     public ArrayList<String> getStartingDeck()
     {
         ArrayList<String> startingDeck = new ArrayList<>();
-        startingDeck.add("Smite");
-        startingDeck.add("Smite");
-        startingDeck.add("Smite");
-        startingDeck.add("Smite");
-        startingDeck.add("Shield");
-        startingDeck.add("Shield");
-        startingDeck.add("Shield");
-        startingDeck.add("Shield");
-        startingDeck.add("LayOnHands");
-        startingDeck.add("HolyWrath");
+        startingDeck.add(Smite.ID);
+        startingDeck.add(Smite.ID);
+        startingDeck.add(Smite.ID);
+        startingDeck.add(Smite.ID);
+        startingDeck.add(Shield.ID);
+        startingDeck.add(Shield.ID);
+        startingDeck.add(Shield.ID);
+        startingDeck.add(Shield.ID);
+        startingDeck.add(HolyWrath.ID);
+        startingDeck.add(LayOnHands.ID);
         return startingDeck;
     }
 
@@ -150,8 +152,7 @@ public class ThePaladin extends CustomPlayer
     @Override
     public BitmapFont getEnergyNumFont()
     {
-        // TODO: figure this out
-        return null;
+        return FontHelper.energyNumFontGreen;
     }
 
     @Override

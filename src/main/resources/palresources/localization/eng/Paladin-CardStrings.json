@@ -1,20 +1,20 @@
 {
-    "Shield": {
+    "PaladinMod:Shield": {
         "NAME": "Shield",
         "DESCRIPTION": "Gain !B! Block. Gain !DIV! Divinity."
     },
 
-    "Smite": {
+    "PaladinMod:Smite": {
         "NAME": "Smite",
         "DESCRIPTION": "Deal !D! damage. Gain !DIV! Divinity."
     },
 
-    "HolyWrath": {
+    "PaladinMod:HolyWrath": {
         "NAME": "Holy Wrath",
-        "DESCRIPTION": " Lose all Divinity. Deal !D! damage for each Divinity lost."
+        "DESCRIPTION": "Deal !M! damage for each Divinity you have. Lose all Divinity."
     },
 
-    "LayOnHands": {
+    "PaladinMod:LayOnHands": {
         "NAME": "Lay on Hands",
         "DESCRIPTION": "Heal !M! HP. Permanently reduce the HP healed by 1."
     }

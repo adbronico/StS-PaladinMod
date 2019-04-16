@@ -3,9 +3,13 @@ package paladinmod;
 import basemod.BaseMod;
 import basemod.abstracts.CustomCard;
 import basemod.interfaces.*;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
+import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -16,9 +20,11 @@ import paladinmod.dynvar.DivinityVariable;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
+@SpireInitializer
 public class PaladinMod implements
         EditCharactersSubscriber,
         EditRelicsSubscriber,
@@ -34,7 +40,7 @@ public class PaladinMod implements
 {
     private static final Logger logger = LogManager.getLogger(PaladinMod.class.getName());
 
-    private static final String ASSET_FOLDER = "img";
+    private static final String IMG_FOLDER = "palresources/img/";
 
     // TODO: create these assets
 
@@ -59,11 +65,19 @@ public class PaladinMod implements
 
     public PaladinMod()
     {
+        BaseMod.subscribe(this);
+
         logger.info("Creating color");
         BaseMod.addColor(AbstractCardEnum.PAL_GOLD, Color.GOLD, Color.GOLD, Color.GOLD, Color.GOLD, Color.GOLD, Color.GOLD, Color.GOLD,
                 makePath(ATTACK_GOLD), makePath(SKILL_GOLD), makePath(POWER_GOLD), makePath(ENERGY_ORB_GOLD),
                 makePath(ATTACK_GOLD_PORTRAIT), makePath(SKILL_GOLD_PORTRAIT), makePath(POWER_GOLD_PORTRAIT),
                 makePath((ENERGY_ORB_GOLD_PORTRAIT)), makePath(CARD_ENERGY_ORB_GOLD));
+        logger.info("Color created");
+    }
+
+    public static void initialize()
+    {
+        new PaladinMod();
     }
 
     @Override
@@ -104,7 +118,10 @@ public class PaladinMod implements
     @Override
     public void receiveEditKeywords()
     {
-
+        // TODO: make these language-specific - see SlimeBound mod
+        // TODO: Update description
+        logger.info("Adding custom keywords");
+        BaseMod.addKeyword(new String[] {"divinity", "Divinity"}, "Paladin Divinity.");
     }
 
     @Override
@@ -116,7 +133,14 @@ public class PaladinMod implements
     @Override
     public void receiveEditStrings()
     {
+        // TODO: replace this hard-coded language with language-specifics
+        logger.info("Loading Strings");
 
+        String cardStrings = Gdx.files.internal("palresources/localization/" + "eng" + "/Paladin-CardStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(CardStrings.class, cardStrings);
+
+        String powerStrings = Gdx.files.internal("palresources/localization/" + "eng" + "/Paladin-PowerStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(PowerStrings.class, powerStrings);
     }
 
     @Override
@@ -157,18 +181,35 @@ public class PaladinMod implements
 
     public static String makePath(String fileName)
     {
-        String path = ASSET_FOLDER + fileName;
+        String path = IMG_FOLDER + fileName;
 
         if(!hasExtension(fileName))
         {
             path += ".png";
         }
 
+        logger.info("Path for " + fileName + " is " + path);
         return path;
     }
 
     public static boolean hasExtension(String fileName)
     {
         return fileName.lastIndexOf('.') > 0;
+    }
+
+    public static int handleAmount(int amount)
+    {
+        if(amount >= 999)
+        {
+            return 999;
+        }
+        else if(amount <= -999)
+        {
+            return -999;
+        }
+        else
+        {
+            return amount;
+        }
     }
 }
