@@ -40,6 +40,7 @@ public class LayOnHands extends AbstractPaladinCard
     @Override
     public void upgrade()
     {
+        //TODO: Should Lay on Hands always be upgradeable? Should it Exhaust?
         if(!this.upgraded)
         {
             this.upgradeName();

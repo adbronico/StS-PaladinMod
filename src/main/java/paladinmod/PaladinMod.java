@@ -90,10 +90,15 @@ public class PaladinMod implements
         logger.info("Adding Paladin class cards");
 
         List<CustomCard> paladinCards = new ArrayList<>();
+        paladinCards.add(new BlindingSmite());
+        paladinCards.add(new BrandingSmite());
+        paladinCards.add(new Darkness());
+        paladinCards.add(new DivineFavor());
+        paladinCards.add(new HolyWrath());
+        paladinCards.add(new LayOnHands());
+        paladinCards.add(new SearingSmite());
         paladinCards.add(new Shield());
         paladinCards.add(new Smite());
-        paladinCards.add(new LayOnHands());
-        paladinCards.add(new HolyWrath());
 
         // Unlock all cards from first run
         for(CustomCard card : paladinCards)
