@@ -28,6 +28,19 @@ public class DivinityPower extends AbstractPower
         this.canGoNegative = true;
     }
 
+    @Override
+    public void reducePower(int reduceAmount)
+    {
+        this.fontScale = 8.0F;
+        this.amount = PaladinMod.handleAmount(this.amount - reduceAmount);
+
+        if (this.amount == 0)
+        {
+            AbstractDungeon.actionManager.addToTop(new RemoveSpecificPowerAction(this.owner, this.owner, POWER_ID));
+        }
+    }
+
+    @Override
     public void stackPower(int stackAmount)
     {
         this.fontScale = 8.0F;

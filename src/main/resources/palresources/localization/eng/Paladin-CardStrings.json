@@ -1,4 +1,13 @@
 {
+    "PaladinMod:AngelForm": {
+        "NAME": "Angel Form",
+        "DESCRIPTION": "Gain Flying.",
+        "UPGRADE_DESCRIPTION": "I am already in Angel Form.",
+        "EXTENDED_DESCRIPTION": [
+            "I am already in Angel Form."
+        ]
+    },
+
     "PaladinMod:BlindingSmite": {
         "NAME": "Blinding Smite",
         "DESCRIPTION": "Deal !D! damage. Apply !M! Weak."
@@ -15,9 +24,35 @@
         "UPGRADE_DESCRIPTION": "Gain !M! Intangible. Draw !M! card."
     },
 
+    "PaladinMod:DefensiveStance": {
+        "NAME": "Defensive Stance",
+        "DESCRIPTION": "Gain !M! Thorns and !M! Plated Armor."
+    },
+
+    "PaladinMod:DestructiveWave": {
+        "NAME": "Destructive Wave",
+        "DESCRIPTION": "Deal !D! damage and apply !M! Weak to ALL enemies."
+    },
+
+    "PaladinMod:DisarmingStrike": {
+        "NAME": "Disarming Strike",
+        "DESCRIPTION": "Deal !D! damage. If your Divinity is negative, enemy loses !M! Strength."
+    },
+
     "PaladinMod:DivineFavor": {
         "NAME": "Divine Favor",
-        "DESCRIPTION": "If your Divinity is positive, draw !M! cards. Lose 3 Divinity."
+        "DESCRIPTION": "If your Divinity is positive, draw !M! cards. Lose !DIV! Divinity."
+    },
+
+    "PaladinMod:FullPlate": {
+        "NAME": "Full Plate",
+        "DESCRIPTION": "Gain !M! Plated Armor."
+    },
+
+    "PaladinMod:HolyBlessing": {
+        "NAME": "Holy Blessing",
+        "DESCRIPTION": "Double your Divinity. Exhaust.",
+        "UPGRADE_DESCRIPTION": "Triple your Divinity. Exhaust."
     },
 
     "PaladinMod:HolyWrath": {
@@ -28,6 +63,26 @@
     "PaladinMod:LayOnHands": {
         "NAME": "Lay on Hands",
         "DESCRIPTION": "Heal !M! HP. Permanently reduce the HP healed by 1."
+    },
+
+    "PaladinMod:Massacre": {
+        "NAME": "Massacre",
+        "DESCRIPTION": "Deal !D! damage to ALL enemies. Lose !DIV! Divinity."
+    },
+
+    "PaladinMod:NeowBlessing": {
+        "NAME": "Neow's Blessing",
+        "DESCRIPTION": "Gain !M! Dexterity. Gain !M! Strength."
+    },
+
+    "PaladinMod:NeowGuidance": {
+        "NAME": "Neow's Guidance",
+        "DESCRIPTION": "Gain !DIV! Divinity. Gain !B! Block. Gain !M! Intangible. Exhaust."
+    },
+
+    "PaladinMod:Prayer": {
+        "NAME": "Prayer",
+        "DESCRIPTION": "Gain !M! Strength. Enemies lose !M! Strength. Exhaust."
     },
 
     "PaladinMod:SearingSmite": {
@@ -43,6 +98,16 @@
     "PaladinMod:Smite": {
         "NAME": "Smite",
         "DESCRIPTION": "Deal !D! damage. Gain !DIV! Divinity."
+    },
+
+    "PaladinMod:WardedStrike": {
+        "NAME": "Warded Strike",
+        "DESCRIPTION": "Deal !D! damage. Gain !M! Artifact."
+    },
+
+    "PaladinMod:WayOfVengeance": {
+        "NAME": "Way of Vengeance",
+        "DESCRIPTION": "Whenever you gain Divinity, deal !M! damage to a random enemy."
     },
 
     "DO_NOT_REMOVE_DummyLineForJSONEndOfFile": {}

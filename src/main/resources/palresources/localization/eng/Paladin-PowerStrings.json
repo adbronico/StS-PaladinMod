@@ -2,7 +2,17 @@
     "PaladinMod:DivinityPower": {
         "NAME": "Divinity",
         "DESCRIPTIONS": [
-            "#yPaladin Divinity level."
+            "Paladin #yDivinity level."
         ]
-    }
+    },
+
+    "PaladinMod:WayOfVengeancePower": {
+        "NAME": "Way of Vengeance",
+        "DESCRIPTIONS": [
+            "Whenever you gain #yDivinity, deal #b",
+            " damage to a random enemy."
+        ]
+    },
+
+    "DO_NOT_REMOVE_DummyLineForJSONEndOfFile": {}
 }

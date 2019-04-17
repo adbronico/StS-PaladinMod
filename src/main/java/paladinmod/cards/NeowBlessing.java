@@ -1,39 +1,39 @@
 package paladinmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
+import com.megacrit.cardcrawl.powers.DexterityPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import paladinmod.PaladinMod;
 
-public class Darkness extends AbstractPaladinCard
+public class NeowBlessing extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:Darkness";
+    public  static final String      ID                = "PaladinMod:NeowBlessing";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
-    private static final String      UPGRADE_DESC      = cardStrings.UPGRADE_DESCRIPTION;
-    private static final int         COST              = 2;
-    private static final int         INTANGIBLE_AMT    = 1;
-    private static final CardType    TYPE              = CardType.SKILL;
+    private static final int         COST              = 1;
+    private static final int         BUFF_AMT          = 1;
+    private static final int         UPGRADE_BUFF_ADD  = 1;
+    private static final CardType    TYPE              = CardType.POWER;
     private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
     private static final CardTarget  TARGET            = CardTarget.SELF;
 
-    public Darkness()
+    public NeowBlessing()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = INTANGIBLE_AMT;
+        this.magicNumber = this.baseMagicNumber = BUFF_AMT;
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new Darkness();
+        return new NeowBlessing();
     }
 
     @Override
@@ -42,18 +42,14 @@ public class Darkness extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESC;
-            this.initializeDescription();
+            this.upgradeMagicNumber(UPGRADE_BUFF_ADD);
         }
     }
 
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new IntangiblePlayerPower(player, this.magicNumber), this.magicNumber));
-        if(upgraded)
-        {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.magicNumber));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new DexterityPower(player, this.magicNumber), this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new StrengthPower(player, this.magicNumber), this.magicNumber));
     }
 }

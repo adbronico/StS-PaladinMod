@@ -1,0 +1,12 @@
+{
+    "PaladinMod:TowerShield": {
+        "NAME": "Tower Shield",
+        "FLAVOR": "I have strong opinions.",
+        "DESCRIPTIONS": [
+            "At the end of your turn, gain #b",
+            " #yBlock."
+        ]
+    },
+
+    "DO_NOT_REMOVE_DummyLineForJSONEndOfFile": {}
+}

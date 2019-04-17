@@ -1,0 +1,25 @@
+{
+    "Paladin Keywords": {
+        "DIVINITY": {
+            "NAMES": [
+                "divinity"
+            ],
+            "DESCRIPTION": "Paladin Divinity."
+        },
+
+        "FLYING": {
+            "NAMES": [
+                "flying"
+            ],
+            "DESCRIPTION": "Take half damage from all attacks."
+        },
+
+        "PLATED_ARMOR": {
+            "NAMES": [
+                "plated armor",
+                "plated_armor"
+            ],
+            "DESCRIPTION": "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor."
+        }
+    }
+}

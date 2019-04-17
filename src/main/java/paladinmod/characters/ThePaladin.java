@@ -16,6 +16,7 @@ import paladinmod.PaladinMod;
 import paladinmod.cards.*;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
+import paladinmod.relics.TowerShield;
 
 import java.util.ArrayList;
 
@@ -100,7 +101,7 @@ public class ThePaladin extends CustomPlayer
     public ArrayList<String> getStartingRelics()
     {
         ArrayList<String> startingRelics = new ArrayList<>();
-        // TODO: design starting relic(s)
+        startingRelics.add(TowerShield.ID);
         return startingRelics;
     }
 

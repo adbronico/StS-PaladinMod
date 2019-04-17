@@ -1,6 +1,5 @@
 package paladinmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.GainBlockAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,7 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import paladinmod.PaladinMod;
-import paladinmod.powers.DivinityPower;
+import paladinmod.actions.GainDivinityAction;
 
 public class Shield extends AbstractPaladinCard
 {
@@ -28,7 +27,7 @@ public class Shield extends AbstractPaladinCard
     public Shield()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.baseBlock = BLOCK_AMT;
+        this.block = this.baseBlock = BLOCK_AMT;
         this.divinity = this.baseDivinity = DIV_AMT;
     }
 
@@ -52,6 +51,6 @@ public class Shield extends AbstractPaladinCard
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
         AbstractDungeon.actionManager.addToBottom(new GainBlockAction(player, player, this.block));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new DivinityPower(player, this.divinity), this.divinity));
+        AbstractDungeon.actionManager.addToBottom(new GainDivinityAction(DIV_AMT));
     }
 }

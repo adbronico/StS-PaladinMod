@@ -1,39 +1,52 @@
 package paladinmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.IntangiblePlayerPower;
 import paladinmod.PaladinMod;
+import paladinmod.powers.PlayerFlightPower;
 
-public class Darkness extends AbstractPaladinCard
+public class AngelForm extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:Darkness";
+    public  static final String      ID                = "PaladinMod:AngelForm";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final String      UPGRADE_DESC      = cardStrings.UPGRADE_DESCRIPTION;
-    private static final int         COST              = 2;
-    private static final int         INTANGIBLE_AMT    = 1;
-    private static final CardType    TYPE              = CardType.SKILL;
-    private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
+    public  static final String[]    EXTENDED_DESC     = cardStrings.EXTENDED_DESCRIPTION;
+    private static final int         COST              = 3;
+    private static final int         UPGRADED_COST     = 2;
+    private static final CardType    TYPE              = CardType.POWER;
+    private static final CardRarity  RARITY            = CardRarity.RARE;
     private static final CardTarget  TARGET            = CardTarget.SELF;
 
-    public Darkness()
+    public AngelForm()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
-        this.magicNumber = this.baseMagicNumber = INTANGIBLE_AMT;
+    }
+
+    @Override
+    public boolean canUse(AbstractPlayer player, AbstractMonster monster)
+    {
+        boolean canUse = super.canUse(player, monster);
+
+        if(player.hasPower(PlayerFlightPower.POWER_ID))
+        {
+            canUse = false;
+            this.cantUseMessage = UPGRADE_DESC;
+        }
+
+        return canUse;
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new Darkness();
+        return new AngelForm();
     }
 
     @Override
@@ -42,18 +55,13 @@ public class Darkness extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.rawDescription = UPGRADE_DESC;
-            this.initializeDescription();
+            this.upgradeBaseCost(UPGRADED_COST);
         }
     }
 
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new IntangiblePlayerPower(player, this.magicNumber), this.magicNumber));
-        if(upgraded)
-        {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.magicNumber));
-        }
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new PlayerFlightPower(player, 3)));
     }
 }

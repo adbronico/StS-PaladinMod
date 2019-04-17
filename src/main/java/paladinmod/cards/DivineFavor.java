@@ -1,6 +1,5 @@
 package paladinmod.cards;
 
-import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -9,6 +8,7 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import paladinmod.PaladinMod;
+import paladinmod.actions.LoseDivinityAction;
 import paladinmod.powers.DivinityPower;
 
 public class DivineFavor extends AbstractPaladinCard
@@ -73,6 +73,6 @@ public class DivineFavor extends AbstractPaladinCard
                 AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.magicNumber));
             }
         }
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new DivinityPower(player, this.divinity), this.divinity));
+        AbstractDungeon.actionManager.addToBottom(new LoseDivinityAction(this.divinity));
     }
 }

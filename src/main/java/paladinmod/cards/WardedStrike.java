@@ -1,5 +1,6 @@
 package paladinmod.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -8,36 +9,35 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.ArtifactPower;
 import paladinmod.PaladinMod;
-import paladinmod.actions.GainDivinityAction;
-import paladinmod.patches.PaladinTags;
 
-public class Smite extends AbstractPaladinCard
+public class WardedStrike extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:Smite";
+    public  static final String      ID                = "PaladinMod:WardedStrike";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
-    private static final int         COST              = 1;
-    private static final int         DMG_AMT           = 5;
-    private static final int         UPGRADE_DMG_ADD   = 3;
-    private static final int         DIV_AMT           = 1;
+    private static final int         COST              = 2;
+    private static final int         DMG_AMT           = 15;
+    private static final int         UPGRADE_DMG_ADD   = 5;
+    private static final int         ARTIFACT_AMT      = 1;
     private static final CardType    TYPE              = CardType.ATTACK;
-    private static final CardRarity  RARITY            = CardRarity.BASIC;
+    private static final CardRarity  RARITY            = CardRarity.RARE;
     private static final CardTarget  TARGET            = CardTarget.ENEMY;
 
-    public Smite()
+    public WardedStrike()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
         this.baseDamage = DMG_AMT;
-        this.divinity = this.baseDivinity = DIV_AMT;
-        this.tags.add(PaladinTags.SMITE_TAG);
+        this.magicNumber = this.baseMagicNumber = ARTIFACT_AMT;
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new Smite();
+        return new WardedStrike();
     }
 
     @Override
@@ -54,6 +54,6 @@ public class Smite extends AbstractPaladinCard
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(player, this.damage, this.damageTypeForTurn)));
-        AbstractDungeon.actionManager.addToBottom(new GainDivinityAction(DIV_AMT));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new ArtifactPower(player, magicNumber), magicNumber));
     }
 }
