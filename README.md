@@ -1,8 +1,10 @@
 # Paladin Character Mod for Slay the Spire
 # Work-in-progress
 
-Card implementation: 0/75
-Relic implementation: TBD
+Card implementation: 28 / 75?
+
+Relic implementation: 1 / ???
+
 Event implementation: TBD
 
 Artwork being provided by: Wanwan!
