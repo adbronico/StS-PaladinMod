@@ -8,6 +8,17 @@
         ]
     },
 
+    "PaladinMod:AuraOfHate": {
+        "NAME": "Aura of Hate",
+        "DESCRIPTION": "At the start of your turn, if your Divinity is negative, gain !M! Strength."
+    },
+
+    "PaladinMod:AuraOfPurity": {
+        "NAME": "Aura of Purity",
+        "DESCRIPTION": "Whenever you draw a Status card, Exhaust it.",
+        "UPGRADE_DESCRIPTION": "Innate. Whenever you draw a Status, Exhaust it."
+    },
+
     "PaladinMod:BlindingSmite": {
         "NAME": "Blinding Smite",
         "DESCRIPTION": "Deal !D! damage. Apply !M! Weak."
@@ -16,6 +27,22 @@
     "PaladinMod:BrandingSmite": {
         "NAME": "Branding Smite",
         "DESCRIPTION": "Deal !D! damage. Apply !M! Vulnerable."
+    },
+
+    "PaladinMod:Condemn": {
+        "NAME": "Condemn",
+        "DESCRIPTION": "Enemy loses !M! Strength."
+    },
+
+    "PaladinMod:CrownOfMadness": {
+        "NAME": "Crown of Madness",
+        "DESCRIPTION": "If your Divinity is negative, stun ALL enemies. Exhaust."
+    },
+
+    "PaladinMod:CureWounds": {
+        "NAME": "Cure Wounds",
+        "DESCRIPTION": "Exhaust a card. Draw a card.",
+        "UPGRADE_DESCRIPTION": "Exhaust a card. Draw two cards."
     },
 
     "PaladinMod:Darkness": {
@@ -44,9 +71,35 @@
         "DESCRIPTION": "If your Divinity is positive, draw !M! cards. Lose !DIV! Divinity."
     },
 
+    "PaladinMod:DivineJustice": {
+        "NAME": "Divine Justice",
+        "DESCRIPTION": "Deal !D! damage. Deals !M! additional damage fo each Divinity you have. Exhaust."
+    },
+
     "PaladinMod:FullPlate": {
         "NAME": "Full Plate",
         "DESCRIPTION": "Gain !M! Plated Armor."
+    },
+
+    "PaladinMod:GuidedStrike": {
+        "NAME": "Guided Strike",
+        "DESCRIPTION": "Deal !D! damage. Choose a card in your hand to place on top of your draw pile."
+    },
+
+    "PaladinMod:GuidingHand": {
+        "NAME": "Guiding Hand",
+        "DESCRIPTION": "Retain up to one card. Retained card costs one less next turn.",
+        "UPGRADE_DESCRIPTION": "Retain up to two cards. Retained cards cost two less next turn."
+    },
+
+    "PaladinMod:HammerToss": {
+        "NAME": "Hammer Toss",
+        "DESCRIPTION": "Deal !D! damage. You can't play Attack next turn."
+    },
+
+    "PaladinMod:HolyAvenger": {
+        "NAME": "Holy Avenger",
+        "DESCRIPTION": "At the start of your turn, add a random Smite to your hand."
     },
 
     "PaladinMod:HolyBlessing": {
@@ -58,6 +111,11 @@
     "PaladinMod:HolyWrath": {
         "NAME": "Holy Wrath",
         "DESCRIPTION": "Deal !M! damage for each Divinity you have. Lose all Divinity."
+    },
+
+    "PaladinMod:InflictWounds": {
+        "NAME": "Inflict Wounds",
+        "DESCRIPTION": "Deal !D! damage. Deals an additional !M! damage if your Divinity is negative."
     },
 
     "PaladinMod:LayOnHands": {
@@ -80,9 +138,24 @@
         "DESCRIPTION": "Gain !DIV! Divinity. Gain !B! Block. Gain !M! Intangible. Exhaust."
     },
 
+    "PaladinMod:NeowRage": {
+        "NAME": "Neow's Rage",
+        "DESCRIPTION": "Deal !D! damage. If you dealt unblocked damage, Stun the enemy. Exhaust."
+    },
+
     "PaladinMod:Prayer": {
         "NAME": "Prayer",
         "DESCRIPTION": "Gain !M! Strength. Enemies lose !M! Strength. Exhaust."
+    },
+
+    "PaladinMod:Protection": {
+        "NAME": "Protection",
+        "DESCRIPTION": "Gain !M! Artifact."
+    },
+
+    "PaladinMod:Recover": {
+        "NAME": "Recover",
+        "DESCRIPTION": "Heal !M! HP X Times. Exhaust."
     },
 
     "PaladinMod:SearingSmite": {
@@ -100,9 +173,26 @@
         "DESCRIPTION": "Deal !D! damage. Gain !DIV! Divinity."
     },
 
+    "PaladinMod:SwordAndShield": {
+        "NAME": "Sword & Shield",
+        "DESCRIPTION": "Deal !D! damage and gain !B! Block X times.",
+        "UPGRADE_DESCRIPTION": "Deal !D! damage and gain !B! Block X+1 times."
+    },
+
+    "PaladinMod:VorpalBlade": {
+        "NAME": "Vorpal Blade",
+        "DESCRIPTION:": "Deal !D! damage. Instantly kills minions."
+    },
+
     "PaladinMod:WardedStrike": {
         "NAME": "Warded Strike",
         "DESCRIPTION": "Deal !D! damage. Gain !M! Artifact."
+    },
+
+    "PaladinMod:WayOfTheAncients": {
+        "NAME": "Way of the Ancients",
+        "DESCRIPTION": "Gain Malleable.",
+        "UPGRADE_DESCRIPTION": "I already have Malleable!"
     },
 
     "PaladinMod:WayOfVengeance": {

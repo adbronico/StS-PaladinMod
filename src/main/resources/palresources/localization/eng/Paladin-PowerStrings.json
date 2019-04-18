@@ -1,4 +1,19 @@
 {
+    "PaladinMod:AuraOfHatePower": {
+        "NAME": "Aura of Hate",
+        "DESCRIPTIONS": [
+            "At the start of your turn, if your #yDivinity is negative, gain #b",
+            " #yStrength."
+        ]
+    },
+
+    "PaladinMod:AuraOfPurityPower": {
+        "NAME": "Aura of Purity",
+        "DESCRIPTIONS": [
+            "Whenever you draw a #yStatus card, #yExhaust it."
+        ]
+    },
+
     "PaladinMod:DivinityPower": {
         "NAME": "Divinity",
         "DESCRIPTIONS": [

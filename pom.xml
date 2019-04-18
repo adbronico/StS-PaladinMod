@@ -26,6 +26,13 @@
         </dependency>
         <dependency>
             <groupId>com.evacipated.cardcrawl</groupId>
+            <artifactId>stslib</artifactId>
+            <version>1.9.0</version>
+            <scope>system</scope>
+            <systemPath>${basedir}/lib/STSLib.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.evacipated.cardcrawl</groupId>
             <artifactId>ModTheSpire</artifactId>
             <version>2.6.0</version>
             <scope>system</scope>

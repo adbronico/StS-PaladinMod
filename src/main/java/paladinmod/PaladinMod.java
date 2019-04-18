@@ -6,9 +6,14 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
-import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
+import com.megacrit.cardcrawl.localization.CardStrings;
+import com.megacrit.cardcrawl.localization.PowerStrings;
+import com.megacrit.cardcrawl.localization.RelicStrings;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -18,6 +23,7 @@ import paladinmod.characters.ThePaladin;
 import paladinmod.dynvar.DivinityVariable;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
+import paladinmod.powers.AuraOfPurityPower;
 import paladinmod.relics.TowerShield;
 
 import java.nio.charset.StandardCharsets;
@@ -65,6 +71,13 @@ public class PaladinMod implements
     public static final String PALADIN_SHOULDER_2 = "char/shoulder2.png";
     public static final String PALADIN_CORPSE     = "char/corpse.png";
 
+    public enum PositionEnum
+    {
+        TOP,
+        BOTTOM,
+        RANDOM
+    }
+
     public PaladinMod()
     {
         BaseMod.subscribe(this);
@@ -93,12 +106,19 @@ public class PaladinMod implements
 
         List<CustomCard> paladinCards = new ArrayList<>();
         paladinCards.add(new AngelForm());
+        paladinCards.add(new AuraOfHate());
+        paladinCards.add(new AuraOfPurity());
         paladinCards.add(new BlindingSmite());
         paladinCards.add(new BrandingSmite());
+        paladinCards.add(new Condemn());
+        paladinCards.add(new CrownOfMadness());
+        paladinCards.add(new CureWounds());
         paladinCards.add(new Darkness());
         paladinCards.add(new DefensiveStance());
+        paladinCards.add(new DestructiveWave());
         paladinCards.add(new DisarmingStrike());
         paladinCards.add(new DivineFavor());
+        paladinCards.add(new DivineJustice());
         paladinCards.add(new FullPlate());
         paladinCards.add(new HolyBlessing());
         paladinCards.add(new HolyWrath());
@@ -111,6 +131,7 @@ public class PaladinMod implements
         paladinCards.add(new Shield());
         paladinCards.add(new Smite());
         paladinCards.add(new WardedStrike());
+        paladinCards.add(new WayOfTheAncients());
         paladinCards.add(new WayOfVengeance());
 
         // Unlock all cards from first run
@@ -140,6 +161,7 @@ public class PaladinMod implements
         // TODO: Update description
         logger.info("Adding custom keywords");
         BaseMod.addKeyword(new String[] {"divinity", "Divinity"}, "Paladin Divinity.");
+        BaseMod.addKeyword(new String[] {"malleable", "Malleable"}, "Gain increasing block as you take damage.");
         BaseMod.addKeyword(new String[] {"Plated Armor", "Plated"}, "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor.");
         BaseMod.addKeyword(new String[] {"flying", "Flying"}, "Take half damage from all attacks.");
     }
@@ -188,9 +210,14 @@ public class PaladinMod implements
     }
 
     @Override
-    public void receivePostDraw(AbstractCard abstractCard)
+    public void receivePostDraw(AbstractCard card)
     {
+        AbstractPlayer player = AbstractDungeon.player;
 
+        if(AbstractCard.CardType.STATUS.equals(card.type) && player.hasPower(AuraOfPurityPower.POWER_ID))
+        {
+            AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, player.hand));
+        }
     }
 
     @Override
