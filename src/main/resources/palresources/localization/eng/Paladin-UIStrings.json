@@ -1,0 +1,13 @@
+{
+    "PaladinMod:GuidedStrikeAction": {
+        "TEXT": [
+            "place on top of your deck."
+        ]
+    },
+
+    "PaladinMod:GuidingHandAction": {
+        "TEXT": [
+            "Retain. It will cost one less next turn."
+        ]
+    }
+}

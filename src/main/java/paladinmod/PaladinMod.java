@@ -11,9 +11,7 @@ import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
-import com.megacrit.cardcrawl.localization.CardStrings;
-import com.megacrit.cardcrawl.localization.PowerStrings;
-import com.megacrit.cardcrawl.localization.RelicStrings;
+import com.megacrit.cardcrawl.localization.*;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -120,16 +118,25 @@ public class PaladinMod implements
         paladinCards.add(new DivineFavor());
         paladinCards.add(new DivineJustice());
         paladinCards.add(new FullPlate());
+        paladinCards.add(new GuidedStrike());
+        paladinCards.add(new GuidingHand());
+        paladinCards.add(new HammerToss());
         paladinCards.add(new HolyBlessing());
+        paladinCards.add(new InflictWounds());
         paladinCards.add(new HolyWrath());
         paladinCards.add(new LayOnHands());
         paladinCards.add(new Massacre());
         paladinCards.add(new NeowBlessing());
         paladinCards.add(new NeowGuidance());
+        paladinCards.add(new NeowRage());
+        paladinCards.add(new PerfectedSmite());
         paladinCards.add(new Prayer());
+        paladinCards.add(new Recover());
         paladinCards.add(new SearingSmite());
         paladinCards.add(new Shield());
         paladinCards.add(new Smite());
+        paladinCards.add(new SwordAndShield());
+        paladinCards.add(new VorpalBlade());
         paladinCards.add(new WardedStrike());
         paladinCards.add(new WayOfTheAncients());
         paladinCards.add(new WayOfVengeance());
@@ -164,6 +171,7 @@ public class PaladinMod implements
         BaseMod.addKeyword(new String[] {"malleable", "Malleable"}, "Gain increasing block as you take damage.");
         BaseMod.addKeyword(new String[] {"Plated Armor", "Plated"}, "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor.");
         BaseMod.addKeyword(new String[] {"flying", "Flying"}, "Take half damage from all attacks.");
+        BaseMod.addKeyword(new String[] {"stun", "Stun"}, "Stunned enemies lose their turn.");
     }
 
     @Override
@@ -189,6 +197,9 @@ public class PaladinMod implements
 
         // String keywordStrings = Gdx.files.internal("palresources/localization/" + "eng" + "/Paladin-KeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         // BaseMod.loadCustomStrings(KeywordStrings.class, keywordStrings);
+
+        String uiStrings = Gdx.files.internal("palresources/localization/" + "eng" + "/Paladin-UIStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
+        BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
     }
 
     @Override

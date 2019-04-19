@@ -21,6 +21,14 @@
         ]
     },
 
+    "PaladinMod:GuidingHandPower": {
+        "NAME": "Guiding Hand",
+        "DESCRIPTIONS": [
+            "Next turn, #b",
+            " costs one less."
+        ]
+    },
+
     "PaladinMod:WayOfVengeancePower": {
         "NAME": "Way of Vengeance",
         "DESCRIPTIONS": [

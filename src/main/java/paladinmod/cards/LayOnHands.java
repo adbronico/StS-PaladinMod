@@ -1,6 +1,7 @@
 package paladinmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.HealAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -27,6 +28,12 @@ public class LayOnHands extends AbstractPaladinCard
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseMagicNumber = this.magicNumber = this.misc = HEAL_AMT;
         this.tags.add(CardTags.HEALING);
+    }
+
+    @Override
+    public AbstractCard makeCopy()
+    {
+        return new LayOnHands();
     }
 
     @Override

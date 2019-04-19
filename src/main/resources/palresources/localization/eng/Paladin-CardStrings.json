@@ -36,7 +36,7 @@
 
     "PaladinMod:CrownOfMadness": {
         "NAME": "Crown of Madness",
-        "DESCRIPTION": "If your Divinity is negative, stun ALL enemies. Exhaust."
+        "DESCRIPTION": "If your Divinity is negative, Stun ALL enemies. Exhaust."
     },
 
     "PaladinMod:CureWounds": {
@@ -88,13 +88,12 @@
 
     "PaladinMod:GuidingHand": {
         "NAME": "Guiding Hand",
-        "DESCRIPTION": "Retain up to one card. Retained card costs one less next turn.",
-        "UPGRADE_DESCRIPTION": "Retain up to two cards. Retained cards cost two less next turn."
+        "DESCRIPTION": "Retain up to one card. It costs one less next turn."
     },
 
     "PaladinMod:HammerToss": {
         "NAME": "Hammer Toss",
-        "DESCRIPTION": "Deal !D! damage. You can't play Attack next turn."
+        "DESCRIPTION": "Deal !D! damage. You can't play Attacks next turn."
     },
 
     "PaladinMod:HolyAvenger": {
@@ -143,6 +142,11 @@
         "DESCRIPTION": "Deal !D! damage. If you dealt unblocked damage, Stun the enemy. Exhaust."
     },
 
+    "PaladinMod:PerfectedSmite": {
+        "NAME": "Perfected Smite",
+        "DESCRIPTION": "Deal !D! damage. Deals an additional !M! damage for each Smite in your deck."
+    },
+
     "PaladinMod:Prayer": {
         "NAME": "Prayer",
         "DESCRIPTION": "Gain !M! Strength. Enemies lose !M! Strength. Exhaust."
@@ -181,7 +185,7 @@
 
     "PaladinMod:VorpalBlade": {
         "NAME": "Vorpal Blade",
-        "DESCRIPTION:": "Deal !D! damage. Instantly kills minions."
+        "DESCRIPTION": "Deal !D! damage. Instantly kills minions."
     },
 
     "PaladinMod:WardedStrike": {

@@ -11,22 +11,22 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import paladinmod.PaladinMod;
 import paladinmod.powers.DivinityPower;
 
-public class DivineJustice extends AbstractPaladinCard
+public class InflictWounds extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:DivineJustice";
+    public  static final String      ID                = "PaladinMod:InflictWounds";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
-    private static final int         COST              = 2;
-    private static final int         DMG_AMT           = 6;
-    private static final int         DMG_UPGRADE_AMT   = 4;
-    private static final int         DIV_BONUS_AMT     = 1;
-    private static final int         BON_UPGRADE_AMT   = 0;
+    private static final int         COST              = 1;
+    private static final int         DMG_AMT           = 5;
+    private static final int         UPGRADE_DMG_ADD   = 2;
+    private static final int         DIV_BONUS_AMT     = 7;
+    private static final int         BON_UPGRADE_AMT   = 2;
     private static final CardType    TYPE              = CardType.ATTACK;
-    private static final CardRarity  RARITY            = CardRarity.RARE;
+    private static final CardRarity  RARITY            = CardRarity.COMMON;
     private static final CardTarget  TARGET            = CardTarget.ENEMY;
 
-    public DivineJustice()
+    public InflictWounds()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseDamage = DMG_AMT;
@@ -36,7 +36,7 @@ public class DivineJustice extends AbstractPaladinCard
     @Override
     public AbstractCard makeCopy()
     {
-        return new DivineJustice();
+        return new InflictWounds();
     }
 
     @Override
@@ -46,10 +46,9 @@ public class DivineJustice extends AbstractPaladinCard
 
         if(player.hasPower(DivinityPower.POWER_ID))
         {
-            int divinityAmount = player.getPower(DivinityPower.POWER_ID).amount;
-            if(divinityAmount > 0)
+            if(player.getPower(DivinityPower.POWER_ID).amount < 0)
             {
-                bonusDamage = magicNumber * divinityAmount;
+                bonusDamage = magicNumber;
             }
         }
 
@@ -62,7 +61,8 @@ public class DivineJustice extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.upgradeDamage(DMG_UPGRADE_AMT);
+            this.upgradeDamage(UPGRADE_DMG_ADD);
+            this.upgradeMagicNumber(BON_UPGRADE_AMT);
         }
     }
 
