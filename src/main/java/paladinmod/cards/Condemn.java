@@ -24,7 +24,7 @@ public class Condemn extends AbstractPaladinCard
 
     public Condemn()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.magicNumber = this.baseMagicNumber = DEBUFF_AMT;
     }
 

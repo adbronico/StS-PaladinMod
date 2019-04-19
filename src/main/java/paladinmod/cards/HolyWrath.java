@@ -28,7 +28,7 @@ public class HolyWrath extends AbstractPaladinCard
 
     public HolyWrath()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseDamage = DMG_AMT;
         this.magicNumber = this.baseMagicNumber = DIV_BONUS_AMT;
     }

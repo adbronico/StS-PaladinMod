@@ -28,7 +28,7 @@ public class DestructiveWave extends AbstractPaladinCard
 
     public DestructiveWave()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseDamage = DMG_AMT;
         this.magicNumber = this.baseMagicNumber = WEAK_AMT;
         this.isMultiDamage = true;

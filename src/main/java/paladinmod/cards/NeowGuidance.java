@@ -29,7 +29,7 @@ public class NeowGuidance extends AbstractPaladinCard
 
     public NeowGuidance()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.block = this.baseBlock = BLOCK_AMT;
         this.divinity = this.baseDivinity = DIV_AMT;
         this.magicNumber = this.baseMagicNumber = INTANGIBLE_AMT;

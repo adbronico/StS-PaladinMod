@@ -27,7 +27,7 @@ public class Massacre extends AbstractPaladinCard
 
     public Massacre()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseDamage = DMG_AMT;
         this.isMultiDamage = true;
         this.divinity = this.baseDivinity = DIV_AMT;

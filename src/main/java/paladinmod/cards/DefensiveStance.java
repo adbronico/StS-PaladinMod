@@ -26,7 +26,7 @@ public class DefensiveStance extends AbstractPaladinCard
 
     public DefensiveStance()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.magicNumber = this.baseMagicNumber = BUFF_AMT;
     }
 

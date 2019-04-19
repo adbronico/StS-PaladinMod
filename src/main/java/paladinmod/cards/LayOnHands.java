@@ -24,7 +24,7 @@ public class LayOnHands extends AbstractPaladinCard
 
     public LayOnHands()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseMagicNumber = this.magicNumber = this.misc = HEAL_AMT;
         this.tags.add(CardTags.HEALING);
     }

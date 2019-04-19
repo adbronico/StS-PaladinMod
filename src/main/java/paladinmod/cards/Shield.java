@@ -26,7 +26,7 @@ public class Shield extends AbstractPaladinCard
 
     public Shield()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.block = this.baseBlock = BLOCK_AMT;
         this.divinity = this.baseDivinity = DIV_AMT;
     }

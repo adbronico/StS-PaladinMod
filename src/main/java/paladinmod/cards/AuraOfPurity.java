@@ -24,7 +24,7 @@ public class AuraOfPurity extends AbstractPaladinCard
 
     public AuraOfPurity()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
     }
 
     @Override

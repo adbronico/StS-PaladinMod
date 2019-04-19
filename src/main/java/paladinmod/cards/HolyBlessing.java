@@ -27,7 +27,7 @@ public class HolyBlessing extends AbstractPaladinCard
 
     public HolyBlessing()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.divMultiplier = DIV_MULT;
         this.exhaust = true;
     }

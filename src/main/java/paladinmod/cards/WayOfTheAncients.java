@@ -25,7 +25,7 @@ public class WayOfTheAncients extends AbstractPaladinCard
 
     public WayOfTheAncients()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
     }
 
     @Override

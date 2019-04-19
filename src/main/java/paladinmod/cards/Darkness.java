@@ -26,7 +26,7 @@ public class Darkness extends AbstractPaladinCard
 
     public Darkness()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.magicNumber = this.baseMagicNumber = INTANGIBLE_AMT;
     }
 

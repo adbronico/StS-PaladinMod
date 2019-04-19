@@ -28,7 +28,7 @@ public class Smite extends AbstractPaladinCard
 
     public Smite()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseDamage = DMG_AMT;
         this.divinity = this.baseDivinity = DIV_AMT;
         this.tags.add(PaladinTags.SMITE_TAG);

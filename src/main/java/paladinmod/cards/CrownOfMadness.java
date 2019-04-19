@@ -25,7 +25,7 @@ public class CrownOfMadness extends AbstractPaladinCard
 
     public CrownOfMadness()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.magicNumber = this.baseMagicNumber = STUN_AMT;
         this.exhaust = true;
     }

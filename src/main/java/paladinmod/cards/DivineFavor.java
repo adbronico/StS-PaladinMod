@@ -27,7 +27,7 @@ public class DivineFavor extends AbstractPaladinCard
 
     public DivineFavor()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseMagicNumber = this.magicNumber = DRAW_AMT;
         this.divinity = this.baseDivinity = DIV_LOSS_AMT;
     }

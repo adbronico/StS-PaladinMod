@@ -30,7 +30,7 @@ public class DisarmingStrike extends AbstractPaladinCard
 
     public DisarmingStrike()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseDamage = DMG_AMT;
         this.baseMagicNumber = this.magicNumber = STR_LOW_AMT;
         this.tags.add(CardTags.STRIKE);

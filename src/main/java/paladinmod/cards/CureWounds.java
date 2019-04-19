@@ -27,7 +27,7 @@ public class CureWounds extends AbstractPaladinCard
 
     public CureWounds()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.misc = EXHAUST_AMT;
         this.magicNumber = this.baseMagicNumber = CARD_DRAW_AMT;
     }
