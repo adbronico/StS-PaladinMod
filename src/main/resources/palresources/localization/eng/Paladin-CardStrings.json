@@ -41,14 +41,14 @@
 
     "PaladinMod:CureWounds": {
         "NAME": "Cure Wounds",
-        "DESCRIPTION": "Exhaust a card. Draw a card.",
-        "UPGRADE_DESCRIPTION": "Exhaust a card. Draw two cards."
+        "DESCRIPTION": "Exhaust a card. Draw !CD! card.",
+        "UPGRADE_DESCRIPTION": "Exhaust a card. Draw !CD! cards."
     },
 
     "PaladinMod:Darkness": {
         "NAME": "Darkness",
         "DESCRIPTION": "Gain !M! Intangible.",
-        "UPGRADE_DESCRIPTION": "Gain !M! Intangible. Draw !M! card."
+        "UPGRADE_DESCRIPTION": "Gain !M! Intangible. Draw !CD! card."
     },
 
     "PaladinMod:DefensiveStance": {
@@ -68,12 +68,17 @@
 
     "PaladinMod:DivineFavor": {
         "NAME": "Divine Favor",
-        "DESCRIPTION": "If your Divinity is positive, draw !M! cards. Lose !DIV! Divinity."
+        "DESCRIPTION": "If your Divinity is positive, draw !CD! cards. Lose !DIV! Divinity."
     },
 
     "PaladinMod:DivineJustice": {
         "NAME": "Divine Justice",
         "DESCRIPTION": "Deal !D! damage. Deals !M! additional damage fo each Divinity you have. Exhaust."
+    },
+
+    "PaladinMod:DreadfulAspect": {
+        "NAME": "Dreadful Aspect",
+        "DESCRIPTION": "Lose !DIV! Divinity. Draw !CD! card."
     },
 
     "PaladinMod:FullPlate": {
@@ -107,6 +112,11 @@
         "UPGRADE_DESCRIPTION": "Triple your Divinity. Exhaust."
     },
 
+    "PaladinMod:HolyShield": {
+        "NAME": "Holy Shield",
+        "DESCRIPTION": "Gain !B! Block. Increase this card's Block by !M! this combat."
+    },
+
     "PaladinMod:HolyWrath": {
         "NAME": "Holy Wrath",
         "DESCRIPTION": "Deal !M! damage for each Divinity you have. Lose all Divinity."
@@ -120,6 +130,11 @@
     "PaladinMod:LayOnHands": {
         "NAME": "Lay on Hands",
         "DESCRIPTION": "Heal !M! HP. Permanently reduce the HP healed by 1."
+    },
+
+    "PaladinMod:MarkOfVengeance": {
+        "NAME": "Mark of Vengeance",
+        "DESCRIPTION": "Apply !M! Vulnerable. Draw !CD! card."
     },
 
     "PaladinMod:Massacre": {

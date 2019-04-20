@@ -29,7 +29,7 @@ public class CureWounds extends AbstractPaladinCard
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.misc = EXHAUST_AMT;
-        this.magicNumber = this.baseMagicNumber = CARD_DRAW_AMT;
+        this.cardDraw = this.baseCardDraw = CARD_DRAW_AMT;
     }
 
     @Override
@@ -44,7 +44,7 @@ public class CureWounds extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.upgradeMagicNumber(UPGRADE_DRAW_AMT);
+            this.upgradeCardDraw(UPGRADE_DRAW_AMT);
             this.rawDescription = UPGRADE_DESC;
             this.initializeDescription();
         }
@@ -54,6 +54,6 @@ public class CureWounds extends AbstractPaladinCard
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
         AbstractDungeon.actionManager.addToBottom(new ExhaustAction(player, player, this.misc, false));
-        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.cardDraw));
     }
 }

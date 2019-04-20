@@ -18,6 +18,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import paladinmod.cards.*;
 import paladinmod.characters.ThePaladin;
+import paladinmod.dynvar.CardDrawVariable;
 import paladinmod.dynvar.DivinityVariable;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
@@ -99,6 +100,7 @@ public class PaladinMod implements
         logger.info("Adding DivinityVariable");
 
         BaseMod.addDynamicVariable(new DivinityVariable());
+        BaseMod.addDynamicVariable(new CardDrawVariable());
 
         logger.info("Adding Paladin class cards");
 
@@ -117,14 +119,17 @@ public class PaladinMod implements
         paladinCards.add(new DisarmingStrike());
         paladinCards.add(new DivineFavor());
         paladinCards.add(new DivineJustice());
+        paladinCards.add(new DreadfulAspect());
         paladinCards.add(new FullPlate());
         paladinCards.add(new GuidedStrike());
         paladinCards.add(new GuidingHand());
         paladinCards.add(new HammerToss());
         paladinCards.add(new HolyBlessing());
-        paladinCards.add(new InflictWounds());
+        paladinCards.add(new HolyShield());
         paladinCards.add(new HolyWrath());
+        paladinCards.add(new InflictWounds());
         paladinCards.add(new LayOnHands());
+        paladinCards.add(new MarkOfVengeance());
         paladinCards.add(new Massacre());
         paladinCards.add(new NeowBlessing());
         paladinCards.add(new NeowGuidance());
