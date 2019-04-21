@@ -9,36 +9,33 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import paladinmod.PaladinMod;
-import paladinmod.actions.GainDivinityAction;
-import paladinmod.patches.PaladinTags;
+import paladinmod.actions.RemoveRandomDebuffAction;
 
-public class Smite extends AbstractPaladinCard
+public class PurgingStrike extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:Smite";
+    public  static final String      ID                = "PaladinMod:PurgingStrike";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
-    private static final String      IMAGE             = "cards/Smite";
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final int         COST              = 1;
-    private static final int         DMG_AMT           = 5;
+    private static final int         DMG_AMT           = 6;
     private static final int         UPGRADE_DMG_ADD   = 3;
-    private static final int         DIV_AMT           = 1;
+    private static final int         REMOVE_DEBUFF_AMT = 1;
     private static final CardType    TYPE              = CardType.ATTACK;
-    private static final CardRarity  RARITY            = CardRarity.BASIC;
+    private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
     private static final CardTarget  TARGET            = CardTarget.ENEMY;
 
-    public Smite()
+    public PurgingStrike()
     {
-        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, true);
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.baseDamage = DMG_AMT;
-        this.divinity = this.baseDivinity = DIV_AMT;
-        this.tags.add(PaladinTags.SMITE_TAG);
+        this.tags.add(CardTags.STRIKE);
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new Smite();
+        return new PurgingStrike();
     }
 
     @Override
@@ -55,6 +52,6 @@ public class Smite extends AbstractPaladinCard
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
         AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(player, this.damage, this.damageTypeForTurn)));
-        AbstractDungeon.actionManager.addToBottom(new GainDivinityAction(DIV_AMT));
+        AbstractDungeon.actionManager.addToBottom(new RemoveRandomDebuffAction(player));
     }
 }

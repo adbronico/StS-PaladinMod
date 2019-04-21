@@ -110,6 +110,8 @@ public class PaladinMod implements
         paladinCards.add(new AuraOfPurity());
         paladinCards.add(new BlindingSmite());
         paladinCards.add(new BrandingSmite());
+        paladinCards.add(new CleansingTouch());
+        paladinCards.add(new ChannelDivinity());
         paladinCards.add(new Condemn());
         paladinCards.add(new CrownOfMadness());
         paladinCards.add(new CureWounds());
@@ -124,6 +126,7 @@ public class PaladinMod implements
         paladinCards.add(new GuidedStrike());
         paladinCards.add(new GuidingHand());
         paladinCards.add(new HammerToss());
+        paladinCards.add(new HellishRebuke());
         paladinCards.add(new HolyBlessing());
         paladinCards.add(new HolyShield());
         paladinCards.add(new HolyWrath());
@@ -131,15 +134,20 @@ public class PaladinMod implements
         paladinCards.add(new LayOnHands());
         paladinCards.add(new MarkOfVengeance());
         paladinCards.add(new Massacre());
+        paladinCards.add(new Meditate());
         paladinCards.add(new NeowBlessing());
         paladinCards.add(new NeowGuidance());
         paladinCards.add(new NeowRage());
         paladinCards.add(new PerfectedSmite());
         paladinCards.add(new Prayer());
+        paladinCards.add(new Purge());
         paladinCards.add(new Recover());
+        paladinCards.add(new Redemption());
         paladinCards.add(new SearingSmite());
         paladinCards.add(new Shield());
+        paladinCards.add(new SiphoningStrike());
         paladinCards.add(new Smite());
+        paladinCards.add(new SolemnVigil());
         paladinCards.add(new SwordAndShield());
         paladinCards.add(new VorpalBlade());
         paladinCards.add(new WardedStrike());

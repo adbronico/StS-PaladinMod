@@ -29,6 +29,17 @@
         "DESCRIPTION": "Deal !D! damage. Apply !M! Vulnerable."
     },
 
+    "PaladinMod:ChannelDivinity": {
+        "NAME": "Channel Divinity",
+        "DESCRIPTION": "Gain !DIV! Divinity. Draw !CD! card."
+    },
+
+    "PaladinMod:CleansingTouch": {
+        "NAME": "Cleansing Touch",
+        "DESCRIPTION": "Remove a random debuff. Exhaust.",
+        "UPGRADE_DESCRIPTION": " Remove a random debuff. Draw !CD! card. Exhaust."
+    },
+
     "PaladinMod:Condemn": {
         "NAME": "Condemn",
         "DESCRIPTION": "Enemy loses !M! Strength."
@@ -101,6 +112,11 @@
         "DESCRIPTION": "Deal !D! damage. You can't play Attacks next turn."
     },
 
+    "PaladinMod:HellishRebuke": {
+        "NAME": "Hellish Rebuke",
+        "DESCRIPTION": "Deal damage equal to your negative Divinity."
+    },
+
     "PaladinMod:HolyAvenger": {
         "NAME": "Holy Avenger",
         "DESCRIPTION": "At the start of your turn, add a random Smite to your hand."
@@ -142,6 +158,11 @@
         "DESCRIPTION": "Deal !D! damage to ALL enemies. Lose !DIV! Divinity."
     },
 
+    "PaladinMod:Meditate": {
+        "NAME": "Meditate",
+        "DESCRIPTION": "Draw !CD! cards. Lose !M! Strength until your next turn."
+    },
+
     "PaladinMod:NeowBlessing": {
         "NAME": "Neow's Blessing",
         "DESCRIPTION": "Gain !M! Dexterity. Gain !M! Strength."
@@ -172,9 +193,24 @@
         "DESCRIPTION": "Gain !M! Artifact."
     },
 
+    "PaladinMod:Purge": {
+        "NAME": "Purge",
+        "DESCRIPTION": "Move all Curse and Status cards from your draw pile to your discard pile. Exhaust."
+    },
+
+    "PaladinMod:PurgingStrike": {
+        "NAME": "Purging Strike",
+        "DESCRIPTION": "Deal !D! damage. Remove a random debuff."
+    },
+
     "PaladinMod:Recover": {
         "NAME": "Recover",
         "DESCRIPTION": "Heal !M! HP X Times. Exhaust."
+    },
+
+    "PaladinMod:Redemption": {
+        "NAME": "Redemption",
+        "DESCRIPTION": "Reset your Divinity to zero. Your Divinity can no longer go negative."
     },
 
     "PaladinMod:SearingSmite": {
@@ -187,9 +223,19 @@
         "DESCRIPTION": "Gain !B! Block. Gain !DIV! Divinity."
     },
 
+    "PaladinMod:SiphoningStrike": {
+        "NAME": "Siphoning Strike",
+        "DESCRIPTION": "Deal !D! damage. Heal !M! HP."
+    },
+
     "PaladinMod:Smite": {
         "NAME": "Smite",
         "DESCRIPTION": "Deal !D! damage. Gain !DIV! Divinity."
+    },
+
+    "PaladinMod:SolemnVigil": {
+        "NAME": "Solemn Vigil",
+        "DESCRIPTION": "Gain !B! Block. Place a card from your discard pile on top of your draw pile."
     },
 
     "PaladinMod:SwordAndShield": {

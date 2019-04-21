@@ -29,6 +29,13 @@
         ]
     },
 
+    "PaladinMod:RedemptionPower": {
+        "NAME": "Redemption",
+        "DESCRIPTIONS": [
+            "Your Divinity can no longer go negative."
+        ]
+    },
+
     "PaladinMod:WayOfVengeancePower": {
         "NAME": "Way of Vengeance",
         "DESCRIPTIONS": [

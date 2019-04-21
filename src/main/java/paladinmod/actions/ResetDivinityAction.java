@@ -23,7 +23,14 @@ public class ResetDivinityAction extends AbstractGameAction
         if(player.hasPower(DivinityPower.POWER_ID))
         {
             int divinityAmount = player.getPower(DivinityPower.POWER_ID).amount;
-            AbstractDungeon.actionManager.addToBottom(new LoseDivinityAction(divinityAmount));
+            if(divinityAmount > 0)
+            {
+                AbstractDungeon.actionManager.addToBottom(new LoseDivinityAction(divinityAmount));
+            }
+            else
+            {
+                AbstractDungeon.actionManager.addToBottom(new GainDivinityAction(-divinityAmount));
+            }
         }
 
         this.isDone = true;

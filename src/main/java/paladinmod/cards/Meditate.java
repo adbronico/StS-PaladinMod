@@ -8,34 +8,36 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.GainStrengthPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
 import paladinmod.PaladinMod;
 
-public class MarkOfVengeance extends AbstractPaladinCard
+public class Meditate extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:MarkOfVengeance";
+    public  static final String      ID                = "PaladinMod:Meditate";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
-    private static final int         COST              = 0;
-    private static final int         VULN_AMOUNT       = 1;
-    private static final int         VULN_UPGRADE_AMT  = 1;
-    private static final int         CARD_DRAW_AMT     = 1;
+    private static final int         COST              = 1;
+    private static final int         DRAW_AMT          = 3;
+    private static final int         UPGRADE_DRAW_AMT  = 1;
+    private static final int         STR_LOSS_AMT      = 3;
+    private static final int         STR_LOSS_ADD      = -1;
     private static final CardType    TYPE              = CardType.SKILL;
-    private static final CardRarity  RARITY            = CardRarity.COMMON;
-    private static final CardTarget  TARGET            = CardTarget.ENEMY;
+    private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
+    private static final CardTarget  TARGET            = CardTarget.SELF;
 
-    public MarkOfVengeance()
+    public Meditate()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
-        this.magicNumber = this.baseMagicNumber = VULN_AMOUNT;
-        this.cardDraw = this.baseCardDraw = CARD_DRAW_AMT;
+        this.cardDraw = this.baseCardDraw = DRAW_AMT;
+        this.magicNumber = this.baseMagicNumber = STR_LOSS_AMT;
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new MarkOfVengeance();
+        return new Meditate();
     }
 
     @Override
@@ -44,14 +46,16 @@ public class MarkOfVengeance extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.upgradeMagicNumber(VULN_UPGRADE_AMT);
+            this.upgradeCardDraw(UPGRADE_DRAW_AMT);
+            this.upgradeMagicNumber(STR_LOSS_ADD);
         }
     }
 
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(monster, player, new VulnerablePower(monster, this.magicNumber, false), this.magicNumber));
         AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.cardDraw));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new StrengthPower(player, -this.magicNumber), -this.magicNumber, true));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new GainStrengthPower(player, this.magicNumber), this.magicNumber, true));
     }
 }

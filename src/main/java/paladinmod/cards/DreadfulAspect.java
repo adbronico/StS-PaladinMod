@@ -16,7 +16,7 @@ public class DreadfulAspect extends AbstractPaladinCard
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
-    private static final int         COST              = 2;
+    private static final int         COST              = 0;
     private static final int         DIV_AMOUNT        = 1;
     private static final int         DIV_UPGRADE_AMT   = 1;
     private static final int         CARD_DRAW_AMT     = 1;
