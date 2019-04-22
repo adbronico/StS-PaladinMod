@@ -94,6 +94,7 @@ public class ThePaladin extends CustomPlayer
         startingDeck.add(Shield.ID);
         startingDeck.add(HolyWrath.ID);
         startingDeck.add(LayOnHands.ID);
+        startingDeck.add(DreadLord.ID);
         return startingDeck;
     }
 

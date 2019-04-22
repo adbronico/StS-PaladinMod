@@ -8,6 +8,14 @@
         ]
     },
 
+    "PaladinMod:AuraOfCourage": {
+        "NAME": "Aura of Courage",
+        "DESCRIPTION": "You can no longer be Weakened.",
+        "EXTENDED_DESCRIPTION": [
+            "Innate. You can no longer be Weakened."
+        ]
+    },
+
     "PaladinMod:AuraOfHate": {
         "NAME": "Aura of Hate",
         "DESCRIPTION": "At the start of your turn, if your Divinity is negative, gain !M! Strength."
@@ -64,7 +72,7 @@
 
     "PaladinMod:DefensiveStance": {
         "NAME": "Defensive Stance",
-        "DESCRIPTION": "Gain !M! Thorns and !M! Plated Armor."
+        "DESCRIPTION": "Gain !M! Thorns and !M! Plated_Armor."
     },
 
     "PaladinMod:DestructiveWave": {
@@ -87,6 +95,11 @@
         "DESCRIPTION": "Deal !D! damage. Deals !M! additional damage fo each Divinity you have. Exhaust."
     },
 
+    "PaladinMod:DreadLord": {
+        "NAME": "Dread Lord",
+        "DESCRIPTION": "Apply Weak equal to negative Divinity. Gain !M! Strength."
+    },
+
     "PaladinMod:DreadfulAspect": {
         "NAME": "Dreadful Aspect",
         "DESCRIPTION": "Lose !DIV! Divinity. Draw !CD! card."
@@ -94,7 +107,7 @@
 
     "PaladinMod:FullPlate": {
         "NAME": "Full Plate",
-        "DESCRIPTION": "Gain !M! Plated Armor."
+        "DESCRIPTION": "Gain !M! Plated_Armor."
     },
 
     "PaladinMod:GuidedStrike": {
@@ -178,6 +191,11 @@
         "DESCRIPTION": "Deal !D! damage. If you dealt unblocked damage, Stun the enemy. Exhaust."
     },
 
+    "PaladinMod:Oathbreaker": {
+        "NAME": "Oathbreaker",
+        "DESCRIPTION": "Reset your Divinity to zero. Your Divinity can no longer go positive."
+    },
+
     "PaladinMod:PerfectedSmite": {
         "NAME": "Perfected Smite",
         "DESCRIPTION": "Deal !D! damage. Deals an additional !M! damage for each Smite in your deck."
@@ -211,6 +229,14 @@
     "PaladinMod:Redemption": {
         "NAME": "Redemption",
         "DESCRIPTION": "Reset your Divinity to zero. Your Divinity can no longer go negative."
+    },
+
+    "PaladinMod:RitualOfDeath": {
+        "NAME": "Ritual of Death",
+        "DESCRIPTION": "Ritual !M! NL Defeat all enemies.",
+        "EXTENDED_DESCRIPTION": [
+            "Defeat all enemies. Exhaust."
+        ]
     },
 
     "PaladinMod:SearingSmite": {

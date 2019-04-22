@@ -15,6 +15,7 @@ public class DreadfulAspect extends AbstractPaladinCard
     public  static final String      ID                = "PaladinMod:DreadfulAspect";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
+    private static final String      IMAGE             = "cards/DreadfulAspect";
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final int         COST              = 0;
     private static final int         DIV_AMOUNT        = 1;
@@ -26,7 +27,7 @@ public class DreadfulAspect extends AbstractPaladinCard
 
     public DreadfulAspect()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
+        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, true);
         this.divinity = this.baseDivinity = DIV_AMOUNT;
         this.cardDraw = this.baseCardDraw = CARD_DRAW_AMT;
     }

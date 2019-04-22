@@ -1,25 +1,58 @@
-{
-    "Paladin Keywords": {
-        "DIVINITY": {
-            "NAMES": [
-                "divinity"
-            ],
-            "DESCRIPTION": "Paladin Divinity."
-        },
+[
+    {
+        "NAMES": [
+            "Divinity",
+            "divinity"
+        ],
+        "PROPER_NAME": "Divinity",
+        "DESCRIPTION": "Paladin Divinity"
+    },
 
-        "FLYING": {
-            "NAMES": [
-                "flying"
-            ],
-            "DESCRIPTION": "Take half damage from all attacks."
-        },
+    {
+        "NAMES": [
+            "Flying",
+            "flying"
+        ],
+        "PROPER_NAME": "Flying",
+        "DESCRIPTION": "Take half damage from all attacks."
+    },
 
-        "PLATED_ARMOR": {
-            "NAMES": [
-                "plated armor",
-                "plated_armor"
-            ],
-            "DESCRIPTION": "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor."
-        }
+    {
+        "NAMES": [
+            "Malleable",
+            "malleable"
+        ],
+        "PROPER_NAME": "Malleable",
+        "DESCRIPTION": "Gain increasing block as you take damage."
+    },
+
+    {
+        "NAMES": [
+            "Plated Armor",
+            "plated armor",
+            "Plated_Armor",
+            "plated_armor",
+            "PlatedArmor"
+        ],
+        "PROPER_NAME": "Plated Armor",
+        "DESCRIPTION": "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor."
+    },
+
+    {
+        "NAMES": [
+            "Ritual",
+            "ritual"
+        ],
+        "PROPER_NAME": "Ritual",
+        "DESCRIPTION": "Rituals must be played multiple times before their effect can take place."
+    },
+
+    {
+        "NAMES": [
+            "Stun",
+            "stun"
+        ],
+        "PROPER_NAME": "Stun",
+        "DESCRIPTION": "Stunned enemies lose their turn."
     }
-}
+]

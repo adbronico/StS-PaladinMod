@@ -6,6 +6,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.Settings;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import paladinmod.powers.DivinityPower;
+import paladinmod.powers.OathbreakerPower;
 
 public class GainDivinityAction extends AbstractGameAction
 {
@@ -22,7 +23,7 @@ public class GainDivinityAction extends AbstractGameAction
     @Override
     public void update()
     {
-        if(Settings.ACTION_DUR_XFAST == this.duration)
+        if(!player.hasPower(OathbreakerPower.POWER_ID))
         {
             AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.player, this.player, new DivinityPower(this.player, this.amount), this.amount));
         }

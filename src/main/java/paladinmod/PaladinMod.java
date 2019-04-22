@@ -6,12 +6,16 @@ import basemod.interfaces.*;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import org.apache.logging.log4j.LogManager;
@@ -22,12 +26,15 @@ import paladinmod.dynvar.CardDrawVariable;
 import paladinmod.dynvar.DivinityVariable;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
+import paladinmod.powers.AuraOfCouragePower;
 import paladinmod.powers.AuraOfPurityPower;
 import paladinmod.relics.TowerShield;
 
+import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @SpireInitializer
 public class PaladinMod implements
@@ -106,6 +113,7 @@ public class PaladinMod implements
 
         List<CustomCard> paladinCards = new ArrayList<>();
         paladinCards.add(new AngelForm());
+        paladinCards.add(new AuraOfCourage());
         paladinCards.add(new AuraOfHate());
         paladinCards.add(new AuraOfPurity());
         paladinCards.add(new BlindingSmite());
@@ -121,6 +129,7 @@ public class PaladinMod implements
         paladinCards.add(new DisarmingStrike());
         paladinCards.add(new DivineFavor());
         paladinCards.add(new DivineJustice());
+        paladinCards.add(new DreadLord());
         paladinCards.add(new DreadfulAspect());
         paladinCards.add(new FullPlate());
         paladinCards.add(new GuidedStrike());
@@ -138,11 +147,13 @@ public class PaladinMod implements
         paladinCards.add(new NeowBlessing());
         paladinCards.add(new NeowGuidance());
         paladinCards.add(new NeowRage());
+        paladinCards.add(new Oathbreaker());
         paladinCards.add(new PerfectedSmite());
         paladinCards.add(new Prayer());
         paladinCards.add(new Purge());
         paladinCards.add(new Recover());
         paladinCards.add(new Redemption());
+        paladinCards.add(new RitualOfDeath());
         paladinCards.add(new SearingSmite());
         paladinCards.add(new Shield());
         paladinCards.add(new SiphoningStrike());
@@ -180,11 +191,23 @@ public class PaladinMod implements
         // TODO: make these language-specific - see SlimeBound mod
         // TODO: Update description
         logger.info("Adding custom keywords");
-        BaseMod.addKeyword(new String[] {"divinity", "Divinity"}, "Paladin Divinity.");
-        BaseMod.addKeyword(new String[] {"malleable", "Malleable"}, "Gain increasing block as you take damage.");
-        BaseMod.addKeyword(new String[] {"Plated Armor", "Plated"}, "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor.");
-        BaseMod.addKeyword(new String[] {"flying", "Flying"}, "Take half damage from all attacks.");
-        BaseMod.addKeyword(new String[] {"stun", "Stun"}, "Stunned enemies lose their turn.");
+        //BaseMod.addKeyword(new String[] {"divinity", "Divinity"}, "Paladin Divinity.");
+        //BaseMod.addKeyword(new String[] {"malleable", "Malleable"}, "Gain increasing block as you take damage.");
+        //BaseMod.addKeyword(new String[] {"Plated Armor", "Plated"}, "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor.");
+        //BaseMod.addKeyword(new String[] {"flying", "Flying"}, "Take half damage from all attacks.");
+        //BaseMod.addKeyword(new String[] {"stun", "Stun"}, "Stunned enemies lose their turn.");
+
+        Type typeToken = new TypeToken <Map<String, Keyword>>(){}.getType();
+        Gson gson = new Gson();
+        String json = Gdx.files.internal(("palresources/localization/" + "eng" + "/Paladin-KeywordStrings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
+
+        final com.evacipated.cardcrawl.mod.stslib.Keyword[] keywords =
+                (com.evacipated.cardcrawl.mod.stslib.Keyword[])gson.fromJson(json, (Class) com.evacipated.cardcrawl.mod.stslib.Keyword[].class);
+        for (com.evacipated.cardcrawl.mod.stslib.Keyword kw : keywords) {
+
+            BaseMod.addKeyword(kw.PROPER_NAME, kw.NAMES, kw.DESCRIPTION);
+        }
+        logger.info("done editing keywords");
     }
 
     @Override
@@ -208,9 +231,6 @@ public class PaladinMod implements
         String relicStrings = Gdx.files.internal("palresources/localization/" + "eng" + "/Paladin-RelicStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(RelicStrings.class, relicStrings);
 
-        // String keywordStrings = Gdx.files.internal("palresources/localization/" + "eng" + "/Paladin-KeywordStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
-        // BaseMod.loadCustomStrings(KeywordStrings.class, keywordStrings);
-
         String uiStrings = Gdx.files.internal("palresources/localization/" + "eng" + "/Paladin-UIStrings.json").readString(String.valueOf(StandardCharsets.UTF_8));
         BaseMod.loadCustomStrings(UIStrings.class, uiStrings);
     }
@@ -224,7 +244,13 @@ public class PaladinMod implements
     @Override
     public void receivePowersModified()
     {
+        AbstractPlayer player = AbstractDungeon.player;
 
+        if(player.hasPower(AuraOfCouragePower.POWER_ID) && player.hasPower(WeakPower.POWER_ID))
+        {
+            AbstractDungeon.actionManager.addToBottom(new RemoveSpecificPowerAction(player, player, WeakPower.POWER_ID));
+            player.getPower(AuraOfCouragePower.POWER_ID).flash();
+        }
     }
 
     @Override

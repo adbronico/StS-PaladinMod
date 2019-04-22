@@ -1,5 +1,6 @@
 package paladinmod.cards;
 
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -7,32 +8,28 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import paladinmod.PaladinMod;
-import paladinmod.actions.ModifyStrengthAction;
+import paladinmod.powers.AuraOfCouragePower;
 
-public class Condemn extends AbstractPaladinCard
+public class AuraOfCourage extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:Condemn";
+    public  static final String      ID                = "PaladinMod:AuraOfCourage";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
-    private static final String      IMAGE             = "cards/Condemn";
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final int         COST              = 1;
-    private static final int         DEBUFF_AMT        = 1;
-    private static final int         UPG_DEBUFF_ADD    = 1;
-    private static final CardType    TYPE              = CardType.SKILL;
-    private static final CardRarity  RARITY            = CardRarity.RARE;
-    private static final CardTarget  TARGET            = CardTarget.ENEMY;
+    private static final CardType    TYPE              = CardType.POWER;
+    private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
+    private static final CardTarget  TARGET            = CardTarget.SELF;
 
-    public Condemn()
+    public AuraOfCourage()
     {
-        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, true);
-        this.magicNumber = this.baseMagicNumber = DEBUFF_AMT;
+        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new Condemn();
+        return new AuraOfCourage();
     }
 
     @Override
@@ -41,13 +38,13 @@ public class Condemn extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.upgradeMagicNumber(UPG_DEBUFF_ADD);
+            this.isInnate = true;
         }
     }
 
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        AbstractDungeon.actionManager.addToBottom(new ModifyStrengthAction(player, monster, -this.magicNumber));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new AuraOfCouragePower(player)));
     }
 }

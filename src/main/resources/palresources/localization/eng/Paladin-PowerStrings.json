@@ -1,4 +1,11 @@
 {
+    "PaladinMod:AuraOfCouragePower": {
+        "NAME": "Aura of Courage",
+        "DESCRIPTIONS": [
+            "You can no longer be weakened."
+        ]
+    },
+
     "PaladinMod:AuraOfHatePower": {
         "NAME": "Aura of Hate",
         "DESCRIPTIONS": [
@@ -26,6 +33,13 @@
         "DESCRIPTIONS": [
             "Next turn, #b",
             " costs one less."
+        ]
+    },
+
+    "PaladinMod:OathbreakerPower": {
+        "NAME": "Oathbreaker",
+        "DESCRIPTIONS": [
+            "Your Divinity can no longer go positve."
         ]
     },
 
