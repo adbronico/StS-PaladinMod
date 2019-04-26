@@ -9,8 +9,8 @@ import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.EntanglePower;
 import paladinmod.PaladinMod;
+import paladinmod.powers.HammerTossPower;
 
 public class HammerToss extends AbstractPaladinCard
 {
@@ -50,8 +50,7 @@ public class HammerToss extends AbstractPaladinCard
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        //TODO: Move the Entangle from this turn to next; create a new power to replace it
         AbstractDungeon.actionManager.addToBottom(new DamageAction(monster, new DamageInfo(player, this.damage, this.damageTypeForTurn)));
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new EntanglePower(player)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new HammerTossPower(player)));
     }
 }

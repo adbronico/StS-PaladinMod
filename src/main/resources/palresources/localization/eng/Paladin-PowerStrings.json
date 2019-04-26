@@ -36,6 +36,13 @@
         ]
     },
 
+    "PaladinMod:HammerTossPower": {
+        "NAME": "Hammer Tossed",
+        "DESCRIPTIONS": [
+            "Next turn, you cannot play attacks."
+        ]
+    },
+
     "PaladinMod:NeowArsenalPower": {
         "NAME": "Neow's Arsenal",
         "DESCRIPTIONS": [

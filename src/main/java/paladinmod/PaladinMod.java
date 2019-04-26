@@ -7,7 +7,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.evacipated.cardcrawl.modthespire.lib.SpireInitializer;
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
@@ -32,11 +31,9 @@ import paladinmod.powers.AuraOfCouragePower;
 import paladinmod.powers.AuraOfPurityPower;
 import paladinmod.relics.TowerShield;
 
-import java.lang.reflect.Type;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 @SpireInitializer
 public class PaladinMod implements
@@ -154,7 +151,9 @@ public class PaladinMod implements
         paladinCards.add(new Oathbreaker());
         paladinCards.add(new PerfectedSmite());
         paladinCards.add(new Prayer());
+        paladinCards.add(new Protection());
         paladinCards.add(new Purge());
+        paladinCards.add(new PurgingStrike());
         paladinCards.add(new Recover());
         paladinCards.add(new Redemption());
         paladinCards.add(new RitualOfDeath());
@@ -198,13 +197,7 @@ public class PaladinMod implements
         // TODO: make these language-specific - see SlimeBound mod
         // TODO: Update description
         logger.info("Adding custom keywords");
-        //BaseMod.addKeyword(new String[] {"divinity", "Divinity"}, "Paladin Divinity.");
-        //BaseMod.addKeyword(new String[] {"malleable", "Malleable"}, "Gain increasing block as you take damage.");
-        //BaseMod.addKeyword(new String[] {"Plated Armor", "Plated"}, "At the end of your turn, gain Block. Receiving attack damage reduces Plated Armor.");
-        //BaseMod.addKeyword(new String[] {"flying", "Flying"}, "Take half damage from all attacks.");
-        //BaseMod.addKeyword(new String[] {"stun", "Stun"}, "Stunned enemies lose their turn.");
 
-        Type typeToken = new TypeToken <Map<String, Keyword>>(){}.getType();
         Gson gson = new Gson();
         String json = Gdx.files.internal(("palresources/localization/" + "eng" + "/Paladin-KeywordStrings.json")).readString(String.valueOf(StandardCharsets.UTF_8));
 

@@ -15,6 +15,7 @@ public class CleansingTouch extends AbstractPaladinCard
     public  static final String      ID                = "PaladinMod:CleansingTouch";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
+    private static final String      IMAGE             = "cards/CleansingTouch";
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final String      UPGRADE_DESC      = cardStrings.UPGRADE_DESCRIPTION;
     private static final int         COST              = 1;
@@ -26,7 +27,7 @@ public class CleansingTouch extends AbstractPaladinCard
 
     public CleansingTouch()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
+        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, true);
         this.magicNumber = this.baseMagicNumber = DEBUFF_REMOVE_AMT;
         this.cardDraw = this.baseCardDraw = CARD_DRAW_AMT;
         this.exhaust = true;
