@@ -1,7 +1,7 @@
 # Paladin Character Mod for Slay the Spire
 # Work-in-progress
 
-Card implementation: 28 / 75?
+Card implementation: 59 / 75?
 
 Relic implementation: 1 / ???
 
