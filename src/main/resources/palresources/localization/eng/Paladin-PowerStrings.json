@@ -36,6 +36,15 @@
         ]
     },
 
+    "PaladinMod:NeowArsenalPower": {
+        "NAME": "Neow's Arsenal",
+        "DESCRIPTIONS": [
+            "At the start of your turn, add #b",
+            " random #ySmite card into your hand.",
+            " random #ySmite cards into your hand."
+        ]
+    },
+
     "PaladinMod:OathbreakerPower": {
         "NAME": "Oathbreaker",
         "DESCRIPTIONS": [
@@ -47,6 +56,14 @@
         "NAME": "Redemption",
         "DESCRIPTIONS": [
             "Your Divinity can no longer go negative."
+        ]
+    },
+
+    "PaladinMod:WayOfProtectionPower": {
+        "NAME": "Way of Protection",
+        "DESCRIPTIONS": [
+            "Whenever you gain #yDivinity, gain #b",
+            " #yBlock."
         ]
     },
 

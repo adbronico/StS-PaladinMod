@@ -105,6 +105,11 @@
         "DESCRIPTION": "Lose !DIV! Divinity. Draw !CD! card."
     },
 
+    "PaladinMod:FocusedSmite": {
+        "NAME": "Focused Smite",
+        "DESCRIPTION": "Deal !D! damage. Draw !CD! card. Costs 1 less [G] for each Smite you've played this combat."
+    },
+
     "PaladinMod:FullPlate": {
         "NAME": "Full Plate",
         "DESCRIPTION": "Gain !M! Plated_Armor."
@@ -174,6 +179,11 @@
     "PaladinMod:Meditate": {
         "NAME": "Meditate",
         "DESCRIPTION": "Draw !CD! cards. Lose !M! Strength until your next turn."
+    },
+
+    "PaladinMod:NeowArsenal": {
+        "NAME": "Neow's Arsenal",
+        "DESCRIPTION": "At the start of your turn, add a random Smite to your hand."
     },
 
     "PaladinMod:NeowBlessing": {
@@ -264,10 +274,20 @@
         "DESCRIPTION": "Gain !B! Block. Place a card from your discard pile on top of your draw pile."
     },
 
+    "PaladinMod:StaggeringSmite": {
+        "NAME": "Staggering Smite",
+        "DESCRIPTION": "Deal !D! damage. Enemy loses !M! Strength until your next turn."
+    },
+
     "PaladinMod:SwordAndShield": {
         "NAME": "Sword & Shield",
         "DESCRIPTION": "Deal !D! damage and gain !B! Block X times.",
         "UPGRADE_DESCRIPTION": "Deal !D! damage and gain !B! Block X+1 times."
+    },
+
+    "PaladinMod:ThunderousSmite": {
+        "NAME": "Thunderous Smite",
+        "DESCRIPTION": "Deal !D! damage. Deals an additional !M! damage if this is the first card you've played this turn."
     },
 
     "PaladinMod:VorpalBlade": {
@@ -278,6 +298,11 @@
     "PaladinMod:WardedStrike": {
         "NAME": "Warded Strike",
         "DESCRIPTION": "Deal !D! damage. Gain !M! Artifact."
+    },
+
+    "PaladinMod:WayOfProtection": {
+        "NAME": "Way Of Protection",
+        "DESCRIPTION": "Whenever you gain Divinity, gain !M! Block."
     },
 
     "PaladinMod:WayOfTheAncients": {

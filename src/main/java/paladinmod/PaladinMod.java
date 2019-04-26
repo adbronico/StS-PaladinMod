@@ -11,6 +11,7 @@ import com.google.gson.reflect.TypeToken;
 import com.megacrit.cardcrawl.actions.common.ExhaustSpecificCardAction;
 import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
+import com.megacrit.cardcrawl.cards.CardGroup;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -25,6 +26,7 @@ import paladinmod.characters.ThePaladin;
 import paladinmod.dynvar.CardDrawVariable;
 import paladinmod.dynvar.DivinityVariable;
 import paladinmod.patches.AbstractCardEnum;
+import paladinmod.patches.PaladinTags;
 import paladinmod.patches.ThePaladinEnum;
 import paladinmod.powers.AuraOfCouragePower;
 import paladinmod.powers.AuraOfPurityPower;
@@ -131,6 +133,7 @@ public class PaladinMod implements
         paladinCards.add(new DivineJustice());
         paladinCards.add(new DreadLord());
         paladinCards.add(new DreadfulAspect());
+        paladinCards.add(new FocusedSmite());
         paladinCards.add(new FullPlate());
         paladinCards.add(new GuidedStrike());
         paladinCards.add(new GuidingHand());
@@ -144,6 +147,7 @@ public class PaladinMod implements
         paladinCards.add(new MarkOfVengeance());
         paladinCards.add(new Massacre());
         paladinCards.add(new Meditate());
+        paladinCards.add(new NeowArsenal());
         paladinCards.add(new NeowBlessing());
         paladinCards.add(new NeowGuidance());
         paladinCards.add(new NeowRage());
@@ -156,10 +160,13 @@ public class PaladinMod implements
         paladinCards.add(new RitualOfDeath());
         paladinCards.add(new SearingSmite());
         paladinCards.add(new Shield());
+        paladinCards.add(new WayOfProtection());
         paladinCards.add(new SiphoningStrike());
         paladinCards.add(new Smite());
         paladinCards.add(new SolemnVigil());
+        paladinCards.add(new StaggeringSmite());
         paladinCards.add(new SwordAndShield());
+        paladinCards.add(new ThunderousSmite());
         paladinCards.add(new VorpalBlade());
         paladinCards.add(new WardedStrike());
         paladinCards.add(new WayOfTheAncients());
@@ -236,9 +243,36 @@ public class PaladinMod implements
     }
 
     @Override
-    public void receiveCardUsed(AbstractCard abstractCard)
+    public void receiveCardUsed(AbstractCard card)
     {
+        AbstractPlayer player = AbstractDungeon.player;
 
+        if(card.tags.contains(PaladinTags.SMITE_TAG))
+        {
+            for(AbstractCard handCard : player.hand.group)
+            {
+                if(handCard.cardID.equals(FocusedSmite.ID))
+                {
+                    handCard.updateCost(-1);
+                }
+            }
+
+            for(AbstractCard deckCard : player.drawPile.group)
+            {
+                if(deckCard.cardID.equals(FocusedSmite.ID))
+                {
+                    deckCard.updateCost(-1);
+                }
+            }
+
+            for(AbstractCard disCard : player.discardPile.group)
+            {
+                if(disCard.cardID.equals(FocusedSmite.ID))
+                {
+                    disCard.updateCost(-1);
+                }
+            }
+        }
     }
 
     @Override
@@ -280,6 +314,42 @@ public class PaladinMod implements
     public void receivePostExhaust(AbstractCard abstractCard)
     {
 
+    }
+
+    public static AbstractCard returnRandomCardByTag(AbstractCard.CardTags tag)
+    {
+        CardGroup cardPool = AbstractDungeon.srcCommonCardPool;
+        ArrayList<AbstractCard> cardList = new ArrayList();
+
+        for(AbstractCard card : cardPool.group)
+        {
+            if(card.tags.contains(tag))
+            {
+                cardList.add(card);
+            }
+        }
+
+        cardPool = AbstractDungeon.uncommonCardPool;
+
+        for(AbstractCard card : cardPool.group)
+        {
+            if(card.tags.contains(tag))
+            {
+                cardList.add(card);
+            }
+        }
+
+        cardPool = AbstractDungeon.rareCardPool;
+
+        for(AbstractCard card : cardPool.group)
+        {
+            if(card.tags.contains(tag))
+            {
+                cardList.add(card);
+            }
+        }
+
+        return cardList.get(AbstractDungeon.cardRandomRng.random(cardList.size() - 1));
     }
 
     public static String makePath(String fileName)
