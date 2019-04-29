@@ -21,6 +21,13 @@
         ]
     },
 
+    "PaladinMod:AuraOfVitalityPower": {
+        "NAME": "Aura of Vitality",
+        "DESCRIPTIONS": [
+            "Your healing effects are doubled."
+        ]
+    },
+
     "PaladinMod:DivinityPower": {
         "NAME": "Divinity",
         "DESCRIPTIONS": [
@@ -33,6 +40,14 @@
         "DESCRIPTIONS": [
             "Next turn, #b",
             " costs one less."
+        ]
+    },
+
+    "PaladinMod:FlamingSwordPower": {
+        "NAME": "Flaming Sword",
+        "DESCRIPTIONS": [
+            "When attacked, deals #b",
+            " damage back."
         ]
     },
 
@@ -59,10 +74,26 @@
         ]
     },
 
+    "PaladinMod:OriginalSinPower": {
+        "NAME": "Original Sin",
+        "DESCRIPTIONS": [
+            "At the start of your turn, gain ",
+            ""
+        ]
+    },
+
     "PaladinMod:RedemptionPower": {
         "NAME": "Redemption",
         "DESCRIPTIONS": [
             "Your Divinity can no longer go negative."
+        ]
+    },
+
+    "PaladinMod:RitualOfProtectionPower": {
+        "NAME": "Ritual of Protection",
+        "DESCRIPTIONS": [
+            "At the start of your turn, gain #b",
+            " #yDexterity."
         ]
     },
 

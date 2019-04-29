@@ -27,6 +27,11 @@
         "UPGRADE_DESCRIPTION": "Innate. Whenever you draw a Status, Exhaust it."
     },
 
+    "PaladinMod:AuraOfVitality": {
+        "NAME": "Aura of Vitality",
+        "DESCRIPTION": "Your healing effects are doubled."
+    },
+
     "PaladinMod:BlindingSmite": {
         "NAME": "Blinding Smite",
         "DESCRIPTION": "Deal !D! damage. Apply !M! Weak."
@@ -103,6 +108,11 @@
     "PaladinMod:DreadfulAspect": {
         "NAME": "Dreadful Aspect",
         "DESCRIPTION": "Lose !DIV! Divinity. Draw !CD! card."
+    },
+
+    "PaladinMod:FlamingSword": {
+        "NAME": "Flaming Sword",
+        "DESCRIPTION": " Gain !M! Strength. Lose !M! Strength at the end of your turn. Whenever you are attacked this turn, deal !D! damage to the attacker."
     },
 
     "PaladinMod:FocusedSmite": {
@@ -206,6 +216,11 @@
         "DESCRIPTION": "Reset your Divinity to zero. Your Divinity can no longer go positive."
     },
 
+    "PaladinMod:OriginalSin": {
+        "NAME": "Original Sin",
+        "DESCRIPTION": "Innate. Ethereal. Lose !DIV! Divinity. Gain !M! Frail, !M! Vulnerable. At the start of your turn, gain [G]."
+    },
+
     "PaladinMod:PerfectedSmite": {
         "NAME": "Perfected Smite",
         "DESCRIPTION": "Deal !D! damage. Deals an additional !M! damage for each Smite in your deck."
@@ -243,9 +258,25 @@
 
     "PaladinMod:RitualOfDeath": {
         "NAME": "Ritual of Death",
-        "DESCRIPTION": "Ritual !M! NL Defeat all enemies.",
+        "DESCRIPTION": "Ritual !RIT!: NL Defeat all enemies.",
         "EXTENDED_DESCRIPTION": [
             "Defeat all enemies. Exhaust."
+        ]
+    },
+
+    "PaladinMod:RitualOfLife": {
+        "NAME": "Ritual of Life",
+        "DESCRIPTION": "Draw !CD! card. NL Ritual !RIT!: NL Restore yourself to full health.",
+        "EXTENDED_DESCRIPTION": [
+            "Draw !CD! card. NL Restore yourself to full health. Exhaust."
+        ]
+    },
+
+    "PaladinMod:RitualOfProtection": {
+        "NAME": "Ritual of Protection",
+        "DESCRIPTION": "Gain !B! Block. NL Ritual !RIT!: NL At the start of your turn, gain !M! Dexterity.",
+        "EXTENDED_DESCRIPTION": [
+            "Gaim !B! Block. NL At the start of your turn, gain !M! Dexterity. Exhaust."
         ]
     },
 
@@ -257,6 +288,12 @@
     "PaladinMod:Shield": {
         "NAME": "Shield",
         "DESCRIPTION": "Gain !B! Block. Gain !DIV! Divinity."
+    },
+
+    "PaladinMod:ShieldOfFaith": {
+        "NAME": "Shield of Faith",
+        "DESCRIPTION": "Gain Block equal to your Divinity.",
+        "UPGRADE_DESCRIPTION": "Gain Block equal to your Divinity. Draw !CD! card."
     },
 
     "PaladinMod:SiphoningStrike": {

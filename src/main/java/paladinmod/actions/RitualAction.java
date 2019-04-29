@@ -3,6 +3,7 @@ package paladinmod.actions;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
+import paladinmod.cards.AbstractPaladinCard;
 
 import java.util.Iterator;
 import java.util.UUID;
@@ -23,13 +24,17 @@ public class RitualAction extends AbstractGameAction
 
         while (cardIter.hasNext())
         {
-            AbstractCard card = (AbstractCard) cardIter.next();
-            card.baseMagicNumber -= 1;
-            card.initializeDescription();
-
-            if (card.baseMagicNumber < 0)
+            AbstractCard abstractCard = (AbstractCard) cardIter.next();
+            if(abstractCard instanceof  AbstractPaladinCard)
             {
-                card.baseMagicNumber = 0;
+                AbstractPaladinCard card = (AbstractPaladinCard) abstractCard;
+                card.baseRitual -= 1;
+                card.initializeDescription();
+
+                if (card.baseRitual < 0)
+                {
+                    card.baseRitual = 0;
+                }
             }
         }
 

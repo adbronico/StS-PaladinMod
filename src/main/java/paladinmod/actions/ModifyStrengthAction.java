@@ -33,10 +33,7 @@ public class ModifyStrengthAction extends AbstractGameAction
     @Override
     public void update()
     {
-        if(Settings.ACTION_DUR_XFAST == this.duration)
-        {
-            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.target, this.owner, new StrengthPower(this.target, this.amount), this.amount));
-        }
+        AbstractDungeon.actionManager.addToTop(new ApplyPowerAction(this.target, this.owner, new StrengthPower(this.target, this.amount), this.amount));
 
         this.isDone = true;
     }

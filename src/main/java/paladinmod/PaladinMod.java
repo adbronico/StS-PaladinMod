@@ -24,6 +24,7 @@ import paladinmod.cards.*;
 import paladinmod.characters.ThePaladin;
 import paladinmod.dynvar.CardDrawVariable;
 import paladinmod.dynvar.DivinityVariable;
+import paladinmod.dynvar.RitualVariable;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.PaladinTags;
 import paladinmod.patches.ThePaladinEnum;
@@ -105,8 +106,9 @@ public class PaladinMod implements
     {
         logger.info("Adding DivinityVariable");
 
-        BaseMod.addDynamicVariable(new DivinityVariable());
         BaseMod.addDynamicVariable(new CardDrawVariable());
+        BaseMod.addDynamicVariable(new DivinityVariable());
+        BaseMod.addDynamicVariable(new RitualVariable());
 
         logger.info("Adding Paladin class cards");
 
@@ -115,6 +117,7 @@ public class PaladinMod implements
         paladinCards.add(new AuraOfCourage());
         paladinCards.add(new AuraOfHate());
         paladinCards.add(new AuraOfPurity());
+        paladinCards.add(new AuraOfVitality());
         paladinCards.add(new BlindingSmite());
         paladinCards.add(new BrandingSmite());
         paladinCards.add(new CleansingTouch());
@@ -130,6 +133,7 @@ public class PaladinMod implements
         paladinCards.add(new DivineJustice());
         paladinCards.add(new DreadLord());
         paladinCards.add(new DreadfulAspect());
+        paladinCards.add(new FlamingSword());
         paladinCards.add(new FocusedSmite());
         paladinCards.add(new FullPlate());
         paladinCards.add(new GuidedStrike());
@@ -149,6 +153,7 @@ public class PaladinMod implements
         paladinCards.add(new NeowGuidance());
         paladinCards.add(new NeowRage());
         paladinCards.add(new Oathbreaker());
+        paladinCards.add(new OriginalSin());
         paladinCards.add(new PerfectedSmite());
         paladinCards.add(new Prayer());
         paladinCards.add(new Protection());
@@ -157,8 +162,11 @@ public class PaladinMod implements
         paladinCards.add(new Recover());
         paladinCards.add(new Redemption());
         paladinCards.add(new RitualOfDeath());
+        paladinCards.add(new RitualOfLife());
+        paladinCards.add(new RitualOfProtection());
         paladinCards.add(new SearingSmite());
         paladinCards.add(new Shield());
+        paladinCards.add(new ShieldOfFaith());
         paladinCards.add(new WayOfProtection());
         paladinCards.add(new SiphoningStrike());
         paladinCards.add(new Smite());
