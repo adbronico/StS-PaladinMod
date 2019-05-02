@@ -59,6 +59,6 @@ public class LayOnHands extends AbstractPaladinCard
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
         AbstractDungeon.actionManager.addToBottom(new HealAction(player, player, this.magicNumber));
-        AbstractDungeon.actionManager.addToBottom(new ModifyHealAction(this.uuid, REDUCE_AMT));
+        AbstractDungeon.actionManager.addToBottom(new ModifyHealAction(this.uuid, REDUCE_AMT, true));
     }
 }

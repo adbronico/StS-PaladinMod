@@ -82,6 +82,14 @@
         ]
     },
 
+    "PaladinMod:PathOfEquilibriumPower": {
+        "NAME": "Path of Equilibrium",
+        "DESCRIPTIONS": [
+            "Whenever you take damage, gain #b",
+            "temporary #yHP."
+        ]
+    },
+
     "PaladinMod:RedemptionPower": {
         "NAME": "Redemption",
         "DESCRIPTIONS": [

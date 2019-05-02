@@ -20,7 +20,7 @@ public class BrandingSmite extends AbstractPaladinCard
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final int         COST              = 1;
-    private static final int         DMG_AMT           = 5;
+    private static final int         DMG_AMT           = 7;
     private static final int         UPGRADE_DMG_ADD   = 2;
     private static final int         VULN_AMT          = 1;
     private static final int         UPGRADE_VULN_ADD  = 1;

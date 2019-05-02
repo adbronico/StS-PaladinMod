@@ -16,6 +16,7 @@ import paladinmod.PaladinMod;
 import paladinmod.cards.*;
 import paladinmod.patches.AbstractCardEnum;
 import paladinmod.patches.ThePaladinEnum;
+import paladinmod.relics.BagOfHolding;
 import paladinmod.relics.TowerShield;
 
 import java.util.ArrayList;
@@ -102,6 +103,7 @@ public class ThePaladin extends CustomPlayer
     {
         ArrayList<String> startingRelics = new ArrayList<>();
         startingRelics.add(TowerShield.ID);
+        startingRelics.add(BagOfHolding.ID);
         return startingRelics;
     }
 

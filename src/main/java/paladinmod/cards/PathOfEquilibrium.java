@@ -8,29 +8,31 @@ import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import paladinmod.PaladinMod;
-import paladinmod.powers.AuraOfPurityPower;
+import paladinmod.powers.PathOfEquilibriumPower;
 
-public class AuraOfPurity extends AbstractPaladinCard
+public class PathOfEquilibrium extends AbstractPaladinCard
 {
-    public  static final String      ID                = "PaladinMod:AuraOfPurity";
+    public  static final String      ID                = "PaladinMod:PathOfEquilibrium";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
-    private static final String      UPGRADE_DESC      = cardStrings.UPGRADE_DESCRIPTION;
-    private static final int         COST              = 0;
+    private static final int         COST              = 2;
+    private static final int         TEMP_HP_AMT       = 3;
+    private static final int         UPGRADE_HP_ADD    = 2;
     private static final CardType    TYPE              = CardType.POWER;
     private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
     private static final CardTarget  TARGET            = CardTarget.SELF;
 
-    public AuraOfPurity()
+    public PathOfEquilibrium()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
+        this.magicNumber = this.baseMagicNumber = TEMP_HP_AMT;
     }
 
     @Override
     public AbstractCard makeCopy()
     {
-        return new AuraOfPurity();
+        return new PathOfEquilibrium();
     }
 
     @Override
@@ -39,15 +41,13 @@ public class AuraOfPurity extends AbstractPaladinCard
         if(!this.upgraded)
         {
             this.upgradeName();
-            this.isInnate = true;
-            this.rawDescription = UPGRADE_DESC;
-            this.initializeDescription();
+            this.upgradeMagicNumber(UPGRADE_HP_ADD);
         }
     }
 
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new AuraOfPurityPower(player)));
+        AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new PathOfEquilibriumPower(player, this.magicNumber)));
     }
 }

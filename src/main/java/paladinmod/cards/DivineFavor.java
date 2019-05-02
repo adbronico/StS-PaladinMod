@@ -9,7 +9,6 @@ import com.megacrit.cardcrawl.localization.CardStrings;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import paladinmod.PaladinMod;
 import paladinmod.actions.LoseDivinityAction;
-import paladinmod.powers.DivinityPower;
 
 public class DivineFavor extends AbstractPaladinCard
 {
@@ -33,20 +32,6 @@ public class DivineFavor extends AbstractPaladinCard
     }
 
     @Override
-    public boolean canUse(AbstractPlayer player, AbstractMonster monster)
-    {
-        boolean canUse = super.canUse(player, monster);
-
-        if(player.hasPower(DivinityPower.POWER_ID) && player.getPower(DivinityPower.POWER_ID).amount < 0)
-        {
-            //TODO: decide if having positive Divinity is required, or if it is only required for the card draw.
-            //canUse = false;
-        }
-
-        return canUse;
-    }
-
-    @Override
     public AbstractCard makeCopy()
     {
         return new DivineFavor();
@@ -65,14 +50,7 @@ public class DivineFavor extends AbstractPaladinCard
     @Override
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
-        if(player.hasPower(DivinityPower.POWER_ID))
-        {
-            int divinityAmount = player.getPower(DivinityPower.POWER_ID).amount;
-            if(divinityAmount > 0)
-            {
-                AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.cardDraw));
-            }
-        }
+        AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.cardDraw));
         AbstractDungeon.actionManager.addToBottom(new LoseDivinityAction(this.divinity));
     }
 }

@@ -15,6 +15,7 @@ import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.*;
+import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.rooms.AbstractRoom;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
@@ -30,6 +31,7 @@ import paladinmod.patches.PaladinTags;
 import paladinmod.patches.ThePaladinEnum;
 import paladinmod.powers.AuraOfCouragePower;
 import paladinmod.powers.AuraOfPurityPower;
+import paladinmod.relics.BagOfHolding;
 import paladinmod.relics.TowerShield;
 
 import java.nio.charset.StandardCharsets;
@@ -154,6 +156,7 @@ public class PaladinMod implements
         paladinCards.add(new NeowRage());
         paladinCards.add(new Oathbreaker());
         paladinCards.add(new OriginalSin());
+        paladinCards.add(new PathOfEquilibrium());
         paladinCards.add(new PerfectedSmite());
         paladinCards.add(new Prayer());
         paladinCards.add(new Protection());
@@ -161,13 +164,14 @@ public class PaladinMod implements
         paladinCards.add(new PurgingStrike());
         paladinCards.add(new Recover());
         paladinCards.add(new Redemption());
+        paladinCards.add(new RelentlessAssault());
         paladinCards.add(new RitualOfDeath());
         paladinCards.add(new RitualOfLife());
         paladinCards.add(new RitualOfProtection());
         paladinCards.add(new SearingSmite());
         paladinCards.add(new Shield());
+        paladinCards.add(new ShieldBash());
         paladinCards.add(new ShieldOfFaith());
-        paladinCards.add(new WayOfProtection());
         paladinCards.add(new SiphoningStrike());
         paladinCards.add(new Smite());
         paladinCards.add(new SolemnVigil());
@@ -176,8 +180,10 @@ public class PaladinMod implements
         paladinCards.add(new ThunderousSmite());
         paladinCards.add(new VorpalBlade());
         paladinCards.add(new WardedStrike());
+        paladinCards.add(new WayOfProtection());
         paladinCards.add(new WayOfTheAncients());
         paladinCards.add(new WayOfVengeance());
+        paladinCards.add(new WrathfulSmite());
 
         // Unlock all cards from first run
         for(CustomCard card : paladinCards)
@@ -222,6 +228,7 @@ public class PaladinMod implements
     public void receiveEditRelics()
     {
         BaseMod.addRelicToCustomPool(new TowerShield(), AbstractCardEnum.PAL_GOLD);
+        BaseMod.addRelicToCustomPool(new BagOfHolding(), AbstractCardEnum.PAL_GOLD);
     }
 
     @Override
@@ -299,7 +306,7 @@ public class PaladinMod implements
     {
         AbstractPlayer player = AbstractDungeon.player;
 
-        if(AbstractCard.CardType.STATUS.equals(card.type) && player.hasPower(AuraOfPurityPower.POWER_ID))
+        if(player.hasPower(AuraOfPurityPower.POWER_ID) && (AbstractCard.CardType.STATUS.equals(card.type) || AbstractCard.CardType.CURSE.equals(card.type)))
         {
             AbstractDungeon.actionManager.addToBottom(new ExhaustSpecificCardAction(card, player.hand));
         }
@@ -315,6 +322,16 @@ public class PaladinMod implements
     public void receivePostExhaust(AbstractCard abstractCard)
     {
 
+    }
+
+    public static boolean isMonsterAttacking(AbstractMonster monster)
+    {
+        if(monster != null && (AbstractMonster.Intent.ATTACK == monster.intent|| AbstractMonster.Intent.ATTACK_BUFF == monster.intent
+                || AbstractMonster.Intent.ATTACK_DEBUFF == monster.intent || AbstractMonster.Intent.ATTACK_DEFEND == monster.intent))
+        {
+            return true;
+        }
+        return false;
     }
 
     public static AbstractCard returnRandomCardByTag(AbstractCard.CardTags tag)

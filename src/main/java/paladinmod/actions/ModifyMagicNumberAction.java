@@ -7,12 +7,12 @@ import com.megacrit.cardcrawl.helpers.GetAllInBattleInstances;
 
 import java.util.UUID;
 
-public class ModifyHealAction extends AbstractGameAction
+public class ModifyMagicNumberAction extends AbstractGameAction
 {
     private UUID uuid;
-    private boolean permanent = false;
+    private boolean permanent;
 
-    public ModifyHealAction(UUID uuid, int amount, boolean permanent)
+    public ModifyMagicNumberAction(UUID uuid, int amount, boolean permanent)
     {
         this.setValues(this.target, this.source, amount);
         this.permanent = permanent;
@@ -29,10 +29,10 @@ public class ModifyHealAction extends AbstractGameAction
             {
                 if(card.uuid.equals(this.uuid))
                 {
-                    card.misc += this.amount;
-                    if(card.misc < 0)
+                    card.baseMagicNumber += this.amount;
+                    if(card.baseMagicNumber < 0)
                     {
-                        card.misc = 0;
+                        card.baseMagicNumber = 0;
                     }
                     card.applyPowers();
                 }
@@ -41,10 +41,10 @@ public class ModifyHealAction extends AbstractGameAction
 
         for (AbstractCard card: GetAllInBattleInstances.get(this.uuid))
         {
-            card.misc += this.amount;
-            if(card.misc < 0)
+            card.baseMagicNumber += this.amount;
+            if(card.baseMagicNumber < 0)
             {
-                card.misc = 0;
+                card.baseMagicNumber = 0;
             }
             card.applyPowers();
         }

@@ -1,7 +1,6 @@
 package paladinmod.cards;
 
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
-import com.megacrit.cardcrawl.actions.common.DrawCardAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
@@ -20,16 +19,15 @@ public class Darkness extends AbstractPaladinCard
     private static final String      UPGRADE_DESC      = cardStrings.UPGRADE_DESCRIPTION;
     private static final int         COST              = 2;
     private static final int         INTANGIBLE_AMT    = 1;
-    private static final int         CARD_DRAW_AMT     = 1;
     private static final CardType    TYPE              = CardType.SKILL;
-    private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
+    private static final CardRarity  RARITY            = CardRarity.RARE;
     private static final CardTarget  TARGET            = CardTarget.SELF;
 
     public Darkness()
     {
         super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
         this.magicNumber = this.baseMagicNumber = INTANGIBLE_AMT;
-        this.cardDraw = this.baseCardDraw = CARD_DRAW_AMT;
+        this.exhaust = true;
     }
 
     @Override
@@ -45,6 +43,7 @@ public class Darkness extends AbstractPaladinCard
         {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESC;
+            this.exhaust = false;
             this.initializeDescription();
         }
     }
@@ -53,9 +52,5 @@ public class Darkness extends AbstractPaladinCard
     public void use(AbstractPlayer player, AbstractMonster monster)
     {
         AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(player, player, new IntangiblePlayerPower(player, this.magicNumber), this.magicNumber));
-        if(upgraded)
-        {
-            AbstractDungeon.actionManager.addToBottom(new DrawCardAction(player, this.cardDraw));
-        }
     }
 }

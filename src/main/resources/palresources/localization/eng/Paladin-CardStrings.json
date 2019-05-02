@@ -23,8 +23,8 @@
 
     "PaladinMod:AuraOfPurity": {
         "NAME": "Aura of Purity",
-        "DESCRIPTION": "Whenever you draw a Status card, Exhaust it.",
-        "UPGRADE_DESCRIPTION": "Innate. Whenever you draw a Status, Exhaust it."
+        "DESCRIPTION": "Whenever you draw a Curse or Status card, Exhaust it.",
+        "UPGRADE_DESCRIPTION": "Innate. Whenever you draw a Curse or Status card, Exhaust it."
     },
 
     "PaladinMod:AuraOfVitality": {
@@ -65,14 +65,14 @@
 
     "PaladinMod:CureWounds": {
         "NAME": "Cure Wounds",
-        "DESCRIPTION": "Exhaust a card. Draw !CD! card.",
-        "UPGRADE_DESCRIPTION": "Exhaust a card. Draw !CD! cards."
+        "DESCRIPTION": "Exhaust a card. Draw !CD! cards. Heal !M! HP.",
+        "UPGRADE_DESCRIPTION": "Exhaust a card. Draw !CD! cards. Heal !M! HP."
     },
 
     "PaladinMod:Darkness": {
         "NAME": "Darkness",
-        "DESCRIPTION": "Gain !M! Intangible.",
-        "UPGRADE_DESCRIPTION": "Gain !M! Intangible. Draw !CD! card."
+        "DESCRIPTION": "Gain !M! Intangible. Exhaust.",
+        "UPGRADE_DESCRIPTION": "Gain !M! Intangible."
     },
 
     "PaladinMod:DefensiveStance": {
@@ -92,7 +92,7 @@
 
     "PaladinMod:DivineFavor": {
         "NAME": "Divine Favor",
-        "DESCRIPTION": "If your Divinity is positive, draw !CD! cards. Lose !DIV! Divinity."
+        "DESCRIPTION": "Draw !CD! cards. Lose !DIV! Divinity."
     },
 
     "PaladinMod:DivineJustice": {
@@ -221,6 +221,11 @@
         "DESCRIPTION": "Innate. Ethereal. Lose !DIV! Divinity. Gain !M! Frail, !M! Vulnerable. At the start of your turn, gain [G]."
     },
 
+    "PaladinMod:PathOfEquilibrium": {
+        "NAME": "Path of Equilibrium",
+        "DESCRIPTION": "Whenever you take damage, gain !M! temporary HP."
+    },
+
     "PaladinMod:PerfectedSmite": {
         "NAME": "Perfected Smite",
         "DESCRIPTION": "Deal !D! damage. Deals an additional !M! damage for each Smite in your deck."
@@ -256,6 +261,11 @@
         "DESCRIPTION": "Reset your Divinity to zero. Your Divinity can no longer go negative."
     },
 
+    "PaladinMod:RelentlessAssault": {
+        "NAME": "Relentless Assault",
+        "DESCRIPTION": "Deal !D! damage !M! times. Increase the number of hits each time this is played."
+    },
+
     "PaladinMod:RitualOfDeath": {
         "NAME": "Ritual of Death",
         "DESCRIPTION": "Ritual !RIT!: NL Defeat all enemies.",
@@ -288,6 +298,11 @@
     "PaladinMod:Shield": {
         "NAME": "Shield",
         "DESCRIPTION": "Gain !B! Block. Gain !DIV! Divinity."
+    },
+
+    "PaladinMod:ShieldBash": {
+        "NAME": "Shield Bash",
+        "DESCRIPTION": "Deal !D! damage. Gain !B! Block. Dexterity affects Shield Bash !M! times."
     },
 
     "PaladinMod:ShieldOfFaith": {
@@ -351,6 +366,11 @@
     "PaladinMod:WayOfVengeance": {
         "NAME": "Way of Vengeance",
         "DESCRIPTION": "Whenever you gain Divinity, deal !M! damage to a random enemy."
+    },
+
+    "PaladinMod:WrathfulSmite": {
+        "NAME": "Wrathful Smite",
+        "DESCRIPTION": "Deal !D! damage. If the enemy intends to attack, Apply !M! Weak; otherwise, Apply !M! Vulnerable."
     },
 
     "DO_NOT_REMOVE_DummyLineForJSONEndOfFile": {}

@@ -19,6 +19,7 @@ public class CleansingTouch extends AbstractPaladinCard
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final String      UPGRADE_DESC      = cardStrings.UPGRADE_DESCRIPTION;
     private static final int         COST              = 1;
+    private static final int         UPGRADED_COST     = 0;
     private static final int         DEBUFF_REMOVE_AMT = 1;
     private static final int         CARD_DRAW_AMT     = 1;
     private static final CardType    TYPE              = CardType.SKILL;
@@ -46,6 +47,7 @@ public class CleansingTouch extends AbstractPaladinCard
         {
             this.upgradeName();
             this.rawDescription = UPGRADE_DESC;
+            this.upgradeBaseCost(UPGRADED_COST);
             this.initializeDescription();
         }
     }

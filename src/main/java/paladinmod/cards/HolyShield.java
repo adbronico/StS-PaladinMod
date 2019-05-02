@@ -17,7 +17,7 @@ public class HolyShield extends AbstractPaladinCard
     private static final String      NAME              = cardStrings.NAME;
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final int         COST              = 0;
-    private static final int         BLOCK_AMT         = 1;
+    private static final int         BLOCK_AMT         = 3;
     private static final int         INCREASE_AMT      = 3;
     private static final int         INCREASE_AMT_ADD  = 1;
     private static final CardType    TYPE              = CardType.SKILL;

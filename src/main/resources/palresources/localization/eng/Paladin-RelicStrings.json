@@ -1,4 +1,13 @@
 {
+    "PaladinMod:BagOfHolding": {
+        "NAME": "Bag of Holding",
+        "FLAVOR": "I'm sure we have some in the Bag of Holding!",
+        "DESCRIPTIONS": [
+            "At the end of your turn, #yRetain #b",
+            " cards."
+        ]
+    },
+
     "PaladinMod:TowerShield": {
         "NAME": "Tower Shield",
         "FLAVOR": "I have strong opinions.",
