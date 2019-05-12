@@ -29,7 +29,7 @@ public class ThunderousSmite extends AbstractPaladinCard
 
     public ThunderousSmite()
     {
-        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
+        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, true);
         this.baseDamage = DMG_AMT;
         this.magicNumber = this.baseMagicNumber = FIRST_CARD_AMT;
         this.tags.add(PaladinTags.SMITE_TAG);

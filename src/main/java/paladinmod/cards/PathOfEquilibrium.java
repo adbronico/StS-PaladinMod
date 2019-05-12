@@ -20,7 +20,7 @@ public class PathOfEquilibrium extends AbstractPaladinCard
     private static final int         TEMP_HP_AMT       = 3;
     private static final int         UPGRADE_HP_ADD    = 2;
     private static final CardType    TYPE              = CardType.POWER;
-    private static final CardRarity  RARITY            = CardRarity.UNCOMMON;
+    private static final CardRarity  RARITY            = CardRarity.SPECIAL;
     private static final CardTarget  TARGET            = CardTarget.SELF;
 
     public PathOfEquilibrium()

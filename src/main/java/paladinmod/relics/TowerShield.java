@@ -15,7 +15,7 @@ public class TowerShield extends CustomRelic
 
     public TowerShield()
     {
-        super(ID, new Texture(PaladinMod.makePath("relics/default")), new Texture(PaladinMod.makePath("relics/outline/default")), RelicTier.STARTER, LandingSound.CLINK);
+        super(ID, new Texture(PaladinMod.makePath("relics/TowerShield")), RelicTier.STARTER, LandingSound.CLINK);
     }
 
     @Override

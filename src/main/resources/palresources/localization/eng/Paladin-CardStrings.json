@@ -32,6 +32,11 @@
         "DESCRIPTION": "Your healing effects are doubled."
     },
 
+    "PaladinMod:Blight": {
+        "NAME": "Blight",
+        "DESCRIPTION": "Apply Poison equal to enemy's Block. Exhaust."
+    },
+
     "PaladinMod:BlindingSmite": {
         "NAME": "Blinding Smite",
         "DESCRIPTION": "Deal !D! damage. Apply !M! Weak."
@@ -45,6 +50,11 @@
     "PaladinMod:ChannelDivinity": {
         "NAME": "Channel Divinity",
         "DESCRIPTION": "Gain !DIV! Divinity. Draw !CD! card."
+    },
+
+    "PaladinMod:ChooseYourPath": {
+        "NAME": "Choose Your Path",
+        "DESCRIPTION": "Choose a bonus to gain whenever you take damage."
     },
 
     "PaladinMod:CleansingTouch": {
@@ -224,6 +234,16 @@
     "PaladinMod:PathOfEquilibrium": {
         "NAME": "Path of Equilibrium",
         "DESCRIPTION": "Whenever you take damage, gain !M! temporary HP."
+    },
+
+    "PaladinMod:PathOfPatience": {
+        "NAME": "Path of Patience",
+        "DESCRIPTION": "Whenever you take damage, draw !CD! card next turn and gain !M! Dexterity."
+    },
+
+    "PaladinMod:PathOfPunishment": {
+        "NAME": "Path of Punishment",
+        "DESCRIPTION": "Whenever you take damage, gain !M! Strength next turn."
     },
 
     "PaladinMod:PerfectedSmite": {

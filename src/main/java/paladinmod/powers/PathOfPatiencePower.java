@@ -1,29 +1,33 @@
 package paladinmod.powers;
 
 import com.badlogic.gdx.graphics.Texture;
-import com.evacipated.cardcrawl.mod.stslib.actions.tempHp.AddTemporaryHPAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.localization.PowerStrings;
 import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.DrawCardNextTurnPower;
 import paladinmod.PaladinMod;
+import paladinmod.actions.ModifyDexterityAction;
 
-public class PathOfEquilibriumPower extends AbstractPower
+public class PathOfPatiencePower extends AbstractPower
 {
-    public static final String POWER_ID = "PaladinMod:PathOfEquilibriumPower";
+    public static final String POWER_ID = "PaladinMod:PathOfPatiencePower";
     private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings(POWER_ID);
     public static final String NAME = powerStrings.NAME;
     public static final String[] DESCRIPTIONS = powerStrings.DESCRIPTIONS;
     public static final String IMG = PaladinMod.TEMP_POWER;
+    private int drawAmt;
 
-    public PathOfEquilibriumPower(AbstractCreature owner, int amount)
+    public PathOfPatiencePower(AbstractCreature owner, int cardDraw, int dexAmount)
     {
         this.ID = POWER_ID;
         this.name = NAME;
         this.owner = owner;
-        this.amount = amount;
+        this.drawAmt = cardDraw;
+        this.amount = dexAmount;
         this.updateDescription();
         this.img = new Texture(PaladinMod.makePath(IMG));
     }
@@ -35,7 +39,8 @@ public class PathOfEquilibriumPower extends AbstractPower
         {
             this.flash();
 
-            AbstractDungeon.actionManager.addToBottom(new AddTemporaryHPAction(this.owner, this.owner, this.amount));
+            AbstractDungeon.actionManager.addToBottom(new ApplyPowerAction(this.owner, this.owner, new DrawCardNextTurnPower(this.owner, this.drawAmt), this.drawAmt));
+            AbstractDungeon.actionManager.addToBottom(new ModifyDexterityAction(this.owner, this.amount));
         }
 
         return damageAmount;
@@ -44,6 +49,6 @@ public class PathOfEquilibriumPower extends AbstractPower
     @Override
     public void updateDescription()
     {
-        this.description = DESCRIPTIONS[0] + this.amount + DESCRIPTIONS[1];
+        this.description = DESCRIPTIONS[0] + this.drawAmt + DESCRIPTIONS[1] + this.amount + DESCRIPTIONS[2];
     }
 }

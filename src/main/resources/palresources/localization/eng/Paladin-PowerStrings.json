@@ -86,7 +86,24 @@
         "NAME": "Path of Equilibrium",
         "DESCRIPTIONS": [
             "Whenever you take damage, gain #b",
-            "temporary #yHP."
+            " temporary #yHP."
+        ]
+    },
+
+    "PaladinMod:PathOfPatiencePower": {
+        "NAME": "Path of Patience",
+        "DESCRIPTIONS": [
+            "Whenever you take damage, draw #b",
+            " card next turn and gain #b",
+            " #yDexterity."
+        ]
+    },
+
+    "PaladinMod:PathOfPunishmentPower": {
+        "NAME": "Path of Punishment",
+        "DESCRIPTIONS": [
+            "Whenever you take damage, gain #b",
+            " #yStrength next turn."
         ]
     },
 
@@ -102,6 +119,14 @@
         "DESCRIPTIONS": [
             "At the start of your turn, gain #b",
             " #yDexterity."
+        ]
+    },
+
+    "PaladinMod:StrengthNextTurn": {
+        "NAME": "Strength Next Turn",
+        "DESCRIPTIONS": [
+            "Next turn, gain #b",
+            " #yStrength. Lose this Strength at the end of next turn."
         ]
     },
 

@@ -18,6 +18,7 @@ public class BrandingSmite extends AbstractPaladinCard
     public  static final String      ID                = "PaladinMod:BrandingSmite";
     private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
     private static final String      NAME              = cardStrings.NAME;
+    private static final String      IMAGE             = "cards/BrandingSmite";
     private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
     private static final int         COST              = 1;
     private static final int         DMG_AMT           = 7;
@@ -30,7 +31,7 @@ public class BrandingSmite extends AbstractPaladinCard
 
     public BrandingSmite()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
+        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, true);
         this.baseDamage = DMG_AMT;
         this.magicNumber = this.baseMagicNumber = VULN_AMT;
         this.tags.add(PaladinTags.SMITE_TAG);

@@ -13,21 +13,22 @@ import paladinmod.patches.PaladinTags;
 
 public class PerfectedSmite extends AbstractPaladinCard
 {
-    public static final String ID = "PaladinMod:PerfectedSmite";
-    private static final CardStrings cardStrings = CardCrawlGame.languagePack.getCardStrings(ID);
-    private static final String NAME = cardStrings.NAME;
-    private static final String DESCRIPTION = cardStrings.DESCRIPTION;
-    private static final int COST = 2;
-    private static final int DMG_AMT = 6;
-    private static final int BONUS_AMT = 2;
-    private static final int UPGRADE_BONUS_ADD = 1;
-    private static final CardType TYPE = CardType.ATTACK;
-    private static final CardRarity RARITY = CardRarity.COMMON;
-    private static final CardTarget TARGET = CardTarget.ENEMY;
+    public  static final String      ID                = "PaladinMod:PerfectedSmite";
+    private static final CardStrings cardStrings       = CardCrawlGame.languagePack.getCardStrings(ID);
+    private static final String      NAME              = cardStrings.NAME;
+    private static final String      IMAGE             = "cards/PerfectedSmite";
+    private static final String      DESCRIPTION       = cardStrings.DESCRIPTION;
+    private static final int         COST              = 2;
+    private static final int         DMG_AMT           = 6;
+    private static final int         BONUS_AMT         = 2;
+    private static final int         UPGRADE_BONUS_ADD = 1;
+    private static final CardType    TYPE              = CardType.ATTACK;
+    private static final CardRarity  RARITY            = CardRarity.COMMON;
+    private static final CardTarget  TARGET            = CardTarget.ENEMY;
 
     public PerfectedSmite()
     {
-        super(ID, NAME, PaladinMod.makePath(ID), COST, DESCRIPTION, TYPE, RARITY, TARGET, false);
+        super(ID, NAME, PaladinMod.makePath(IMAGE), COST, DESCRIPTION, TYPE, RARITY, TARGET, true);
         this.baseDamage = DMG_AMT;
         this.magicNumber = this.baseMagicNumber = BONUS_AMT;
         this.tags.add(PaladinTags.SMITE_TAG);

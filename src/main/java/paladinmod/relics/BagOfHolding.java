@@ -15,7 +15,7 @@ public class BagOfHolding extends CustomRelic
 
     public BagOfHolding()
     {
-        super(ID, new Texture(PaladinMod.makePath("relics/default")), new Texture(PaladinMod.makePath("relics/outline/default")), RelicTier.STARTER, LandingSound.CLINK);
+        super(ID, new Texture(PaladinMod.makePath("relics/BagOfHolding")), RelicTier.STARTER, LandingSound.CLINK);
     }
 
     @Override

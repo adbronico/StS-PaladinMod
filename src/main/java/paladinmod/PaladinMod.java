@@ -120,10 +120,12 @@ public class PaladinMod implements
         paladinCards.add(new AuraOfHate());
         paladinCards.add(new AuraOfPurity());
         paladinCards.add(new AuraOfVitality());
+        paladinCards.add(new Blight());
         paladinCards.add(new BlindingSmite());
         paladinCards.add(new BrandingSmite());
         paladinCards.add(new CleansingTouch());
         paladinCards.add(new ChannelDivinity());
+        paladinCards.add(new ChooseYourPath());
         paladinCards.add(new Condemn());
         paladinCards.add(new CrownOfMadness());
         paladinCards.add(new CureWounds());
@@ -157,6 +159,8 @@ public class PaladinMod implements
         paladinCards.add(new Oathbreaker());
         paladinCards.add(new OriginalSin());
         paladinCards.add(new PathOfEquilibrium());
+        paladinCards.add(new PathOfPatience());
+        paladinCards.add(new PathOfPunishment());
         paladinCards.add(new PerfectedSmite());
         paladinCards.add(new Prayer());
         paladinCards.add(new Protection());
